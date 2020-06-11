@@ -1,9 +1,7 @@
 <?php
-include 'db.php';
+include 'funciones/db.php';
 
 $consulta ="SELECT * FROM categoria";
-
-
 
 ?>
 <!doctype html>
@@ -156,54 +154,53 @@ $consulta ="SELECT * FROM categoria";
                                 <div class="card-body">
                                     <h5 class="card-title">Proveedores</h5>
 
-                                    <form action="insertarP.php" method="POST">
+                                    <form action="funciones/insertarP.php" method="POST" onsubmit="return validar();">
                                         <div class="position-relative form-group">
-                                            <label for="provedor" class="">Nombre o Razon Social</label>
-                                            <input name="nombre" id="nombre" type="text" class="form-control" required>
+                                            <label for="nombre" class="">Nombre o Razon Social</label><p id="mensaje">
+                                            <input name="nombre" id="nombre" type="text" class="form-control">
                                         </div>
                                         <div class="position-relative form-group">
-                                            <label for="provedor" class="">Domicilio</label>
-                                            <input name="domicilio" id="dom" type="text" class="form-control" required>
+                                            <label for="domicilio" class="">Domicilio</label>
+                                            <input name="domicilio" id="domicilio" type="text" class="form-control">
                                         </div>
                                         <div class="position-relative form-group">
-                                            <label for="provedor" class="">Codigo Postal</label>
-                                            <input name="codigopostal" id="cp" type="text" class="form-control" required>
+                                            <label for="codigpostal" class="">Codigo Postal</label>
+                                            <input name="codigopostal" id="cp" type="text" class="form-control">
                                         </div>
                                         <div class="position-relative form-group">
-                                            <label for="provedor" class="">Localidad</label>
-                                            <input name="localidad" id="loca" type="text" class="form-control" required>
+                                            <label for="localidad" class="">Localidad</label>
+                                            <input name="localidad" id="localidad" type="text" class="form-control">
                                         </div>
                                         <div class="position-relative form-group">
-                                            <label for="provedor" class="">Estado</label>
-                                            <input name="estado" id="estado" type="text" class="form-control" required>
+                                            <label for="estado" class="">Estado</label>
+                                            <input name="estado" id="estado" type="text" class="form-control">
                                         </div>
                                         <div class="position-relative form-group">
-                                            <label for="provedor" class="">Pais</label>
-                                            <input name="pais" id="pais" type="text" class="form-control" required>
+                                            <label for="pais" class="">Pais</label>
+                                            <input name="pais" id="pais" type="text" class="form-control">
                                         </div>
                                         <div class="position-relative form-group">
-                                            <label for="provedor" class="">Telefono</label>
-                                            <input name="telefono" id="tel" type="text" class="form-control" required>
+                                            <label for="telefono" class="">Telefono</label>
+                                            <input name="telefono" id="telefono" type="text" class="form-control">
                                         </div>
                                         <div class="position-relative form-group">
-                                            <label for="provedor" class="">Email</label>
-                                            <input name="email" id="email" type="text" class="form-control" required>
+                                            <label for="email" class="">Email</label>
+                                            <input name="email" id="email" type="text" class="form-control">
                                         </div>
                                         <div class="position-relative form-group">
-                                        <label for="provedor" class="">Categoria</label>
-                                            <select name="id_categoria" id="cat" type="text" class="form-control">
+                                        <label for="id_categoria" class="">Categoria</label>
+                                            <select name="id_categoria" id="id_cat" type="text" class="form-control">
                                             <?php $resultado = mysqli_query($conectar, $consulta); 
                                                     while ($row = mysqli_fetch_assoc($resultado)) { ?>
-                                                    <option value="<?php echo $row["id"];?>"><?php echo $row["nombre"]?></option>
+                                                    <option value="<?php echo $row["id"];?>"><?php echo $row["nombre"];?></option>
                                                     <?php } mysqli_free_result($resultado); ?>
                                             </select>
                                         </div>
-                                        <button type="submit" aria-haspopup="true"
+                                        <button type="submit" id="btn" aria-haspopup="true"
                                             aria-expanded="false" class="btn-shadow btn btn-success">
                                             Agregar Provedor
                                         </button>
                                     </form>
-
                                 </div>
                             </div>
                         </div>
@@ -212,6 +209,7 @@ $consulta ="SELECT * FROM categoria";
             </div>
         </div>
     </div>
+    <script src="funciones/validar.js"></script>
     <script type="text/javascript" src="./assets/scripts/main.js"></script>
 </body>
 

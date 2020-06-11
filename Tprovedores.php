@@ -1,6 +1,6 @@
 <?php 
-    include ("db.php");
-    $prov = "SELECT p1.id, p1.nombre, p1.domicilio, p1.cp, p1.localidad, p1.estado, p1.pais, p1.telefono, p1.email, p2.nombre 
+    include ("funciones/db.php");
+    $prov = "SELECT p1.id, p1.nombre_pro, p1.domicilio, p1.cp, p1.localidad, p1.estado, p1.pais, p1.telefono, p1.email, p2.nombre 
     FROM provedor p1 INNER JOIN categoria p2 on p1.id_categoria = p2.id" ;
 ?>
 
@@ -194,7 +194,7 @@
                                                     while ($row = mysqli_fetch_assoc($resultado)) { ?>
 
                                                     
-                                                    <td><?php echo $row["nombre"] ?></td>
+                                                    <td><?php echo $row["nombre_pro"] ?></td>
                                                     <td><?php echo $row["domicilio"] ?></td>
                                                     <td><?php echo $row["cp"] ?></td>
                                                     <td><?php echo $row["localidad"] ?></td>
@@ -208,7 +208,7 @@
                                                     <td>
                                                     <a href="TeditarP.php?id=<?php echo $row["id"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-info">Editar
                                                                 </a>
-                                                    <a href="eliminarP.php?id=<?php echo $row["id"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-danger" onclick="return confirmar()">Eliminar
+                                                    <a href="funciones/eliminarP.php?id=<?php echo $row["id"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-danger" onclick="return confirmar()">Eliminar
                                                                 </a>
                                                     </td>
                                                 </tr>

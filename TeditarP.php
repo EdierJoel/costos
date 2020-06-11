@@ -1,5 +1,5 @@
 <?php
-include("db.php");
+include("funciones/db.php");
 $id = $_GET["id"];
 $prov = "SELECT * FROM provedor WHERE id = '$id'";
 $consulta ="SELECT * FROM categoria";
@@ -157,13 +157,13 @@ $consulta ="SELECT * FROM categoria";
 
                                                     while ($row = mysqli_fetch_assoc($resultado)) { ?>
 
-                                                        <form action="editarP.php" method="POST">
+                                                        <form action="funciones/editarP.php" method="POST" onsubmit="return validar();">
                                                         <div class="position-relative form-group">
                                                                 <input name="id" type="hidden" class="form-control" value="<?php echo $row["id"] ?>">
                                                             </div>
                                                             <div class="position-relative form-group">
                                                                 <label for="provedores" class="">Nombre o Razon social</label>
-                                                                <input name="nombre" id="nombre" type="text" class="form-control" value="<?php echo $row["nombre"] ?>" require>
+                                                                <input name="nombre" id="nombre" type="text" class="form-control" value="<?php echo $row["nombre_pro"] ?>" require>
                                                             </div>
                                                             <div class="position-relative form-group">
                                                                 <label for="provedores" class="">Domicilio</label>
@@ -220,6 +220,7 @@ $consulta ="SELECT * FROM categoria";
             </div>
         </div>
     </div>
+    <script src="funciones/validar.js"></script>
     <script type="text/javascript" src="./assets/scripts/main.js"></script>
 </body>
 

@@ -10,5 +10,5 @@
     $actualizar="UPDATE reglamento SET titulo = '$titulo', descripcion = '$descripcion', fecha = '$fecha' WHERE id = '$id'";
     $resultado=mysqli_query($conectar, $actualizar);
     
-    header('location: Treglamento.php');
+    header('location: ../Treglamento.php');
     ?>

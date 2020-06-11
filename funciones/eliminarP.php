@@ -4,8 +4,8 @@
 
     $id = $_GET['id'];
 
-    $eliminar="DELETE FROM reglamento WHERE id = '$id'";
+    $eliminar="DELETE FROM provedor WHERE id = '$id'";
     $resultado=mysqli_query($conectar, $eliminar);
     
-    header('location: Treglamento.php');
+    header('location: ../Tprovedores.php');
     ?>

@@ -1,5 +1,5 @@
 <?php
-include("db.php");
+include("funciones/db.php");
 $cat = "SELECT * FROM reglamento";
 ?>
 
@@ -180,9 +180,9 @@ $cat = "SELECT * FROM reglamento";
                                                         <td><?php echo $row["fecha"] ?></td>
 
                                                         <td>
-                                                            <a href="TeditarR.php?id=<?php echo $row["id"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-info">Editar
+                                                            <a href="funciones/TeditarR.php?id=<?php echo $row["id"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-info">Editar
                                                             </a>
-                                                            <a href="eliminarR.php?id=<?php echo $row["id"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-danger" onclick="return confirmar()">Eliminar
+                                                            <a href="funciones/eliminarR.php?id=<?php echo $row["id"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-danger" onclick="return confirmar()">Eliminar
                                                             </a>
                                                         </td>
                                                 </tr>

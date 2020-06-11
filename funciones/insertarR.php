@@ -9,6 +9,6 @@
     $consulta="INSERT INTO reglamento (titulo, descripcion, fecha) VALUES ('$titulo', '$descripcion', '$fecha')";
     $resul=mysqli_query($conectar, $consulta);
 
-    header('location: Treglamento.php')
+    header('location: ../Treglamento.php')
     
     ?>

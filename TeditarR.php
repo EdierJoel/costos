@@ -1,5 +1,5 @@
 <?php
-include("db.php");
+include("funciones/db.php");
 $id = $_GET["id"];
 $rep = "SELECT * FROM reglamento WHERE id = '$id'";
 ?>
@@ -156,7 +156,7 @@ $rep = "SELECT * FROM reglamento WHERE id = '$id'";
 
                                                     while ($row = mysqli_fetch_assoc($resultado)) { ?>
 
-                                                        <form action="editarR.php" method="POST">
+                                                        <form action="funciones/editarR.php" method="POST">
                                                             <div class="position-relative form-group">
                                                                 <input name="id" id="id" type="hidden" class="form-control" value="<?php echo $row["id"] ?>">
                                                             </div>

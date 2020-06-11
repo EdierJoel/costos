@@ -12,9 +12,9 @@
     $email = $_POST['email'];
     $cat = $_POST['id_categoria'];
 
-    $actu="UPDATE provedor SET nombre = '$nombre', domicilio = '$dom', cp = '$cp', 
+    $actu="UPDATE provedor SET nombre_pro = '$nombre', domicilio = '$dom', cp = '$cp', 
     localidad = '$loca', estado = '$estado', pais = '$pais', telefono = '$tel', email = '$email', id_categoria = '$cat' WHERE id = '$id'";
     $resultado=mysqli_query($conectar, $actu);
     
-    header('location: Tprovedores.php');
+    header('location: ../Tprovedores.php');
     ?>

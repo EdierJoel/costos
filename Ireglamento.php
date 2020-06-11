@@ -148,7 +148,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Reglamento</h5>
 
-                                    <form action="insertarR.php" method="POST">
+                                    <form action="funciones/insertarR.php" method="POST">
                                         <div class="position-relative form-group">
                                             <label for="reglamento" class="">Titulo</label>
                                             <input name="titulo" id="titulo" type="text" class="form-control" required>
