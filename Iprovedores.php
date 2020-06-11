@@ -20,6 +20,10 @@ $paises ="SELECT P.id_pais, p.paisnombre, e.id_estado, e.estadonombre FROM paise
     <meta name="description" content="Tables are the backbone of almost all web applications.">
     <meta name="msapplication-tap-highlight" content="no">
     <link href="./main.css" rel="stylesheet">
+    <script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
@@ -169,6 +173,7 @@ $paises ="SELECT P.id_pais, p.paisnombre, e.id_estado, e.estadonombre FROM paise
                                             <label for="codigpostal" class="">Codigo Postal</label>
                                             <input name="codigopostal" id="cp" type="text" class="form-control">
                                         </div>
+
                                         <div class="position-relative form-group">
                                             <label for="pais" class="">Pais</label>
                                             <select name="pais" id="pais" type="text" class="form-control">
@@ -181,21 +186,11 @@ $paises ="SELECT P.id_pais, p.paisnombre, e.id_estado, e.estadonombre FROM paise
                                         </div>
 
                                         
-                                        <div class="position-relative form-group">
-                                            <label for="estado" class="">Estado</label>
-                                            
-                                            <select name="estado" id="estado" type="text" class="form-control">
-                                            <option value="0">Seleccione un estado</option>
-                                            <?php $resul = mysqli_query($conectar, $paises); 
-                                                    while ($row = mysqli_fetch_assoc($resul)) { ?>
-                                                    
-                                                    <option value="<?php echo $row["id_estado"];?>"><?php echo $row["estadonombre"];?></option>
-                                                    <?php } mysqli_free_result($resul); ?>
-                                            </select>
+                                        <div class="position-relative form-group" id="lista2">
                                         </div>
 
                                         <div class="position-relative form-group">
-                                            <label for="localidad" class="">Localidad</label>
+                                            <label for="localidad" class="">ciudad</label>
                                             <input name="localidad" id="localidad" type="text" class="form-control">
                                         </div>
                                         
@@ -237,3 +232,25 @@ $paises ="SELECT P.id_pais, p.paisnombre, e.id_estado, e.estadonombre FROM paise
 </body>
 
 </html>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#pais').val(1);
+		recargarLista();
+
+		$('#pais').change(function(){
+			recargarLista();
+		});
+	})
+</script>
+<script type="text/javascript">
+	function recargarLista(){
+		$.ajax({
+			type:"POST",
+			url:"funciones/datos.php",
+			data:"estado=" + $('#pais').val(),
+			success:function(r){
+				$('#lista2').html(r);
+			}
+		});
+	}
+</script>

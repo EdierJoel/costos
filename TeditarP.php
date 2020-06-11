@@ -3,6 +3,7 @@ include("funciones/db.php");
 $id = $_GET["id"];
 $prov = "SELECT * FROM provedor WHERE id = '$id'";
 $consulta ="SELECT * FROM categoria";
+$cpais ="SELECT * FROM paises";
 ?>
 
 <!doctype html>
@@ -18,6 +19,12 @@ $consulta ="SELECT * FROM categoria";
     <meta name="description" content="Tables are the backbone of almost all web applications.">
     <meta name="msapplication-tap-highlight" content="no">
     <link href="./main.css" rel="stylesheet">
+    <script
+    src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous">
+    </script>
+</head>
 </head>
 
 <body>
@@ -173,19 +180,7 @@ $consulta ="SELECT * FROM categoria";
                                                                 <label for="provedores" class="">Codigo Postal</label>
                                                                 <input name="codigopostal" id="cp" type="text" class="form-control" value="<?php echo $row["cp"] ?>" required>
                                                             </div>
-                                                            <div class="position-relative form-group">
-                                                                <label for="provedores" class="">Localidad</label>
-                                                                <input name="localidad" id="localidad" type="text" class="form-control" value="<?php echo $row["localidad"] ?>" required>
-                                                            </div>
-                                                            <div class="position-relative form-group">
-                                                                <label for="provedores" class="">Estado</label>
-                                                                <input name="estado" id="estado" type="text" class="form-control" value="<?php echo $row["estado"] ?>" required>
-                                                            </div>
-                                                            <div class="position-relative form-group">
-                                                                <label for="provedores" class="">Pais</label>
-                                                                <input name="pais" id="pais" type="text" class="form-control" value="<?php echo $row["pais"] ?>" required>
-                                                            </div>
-                                                            <div class="position-relative form-group">
+                                                                <div class="position-relative form-group">
                                                                 <label for="provedores" class="">Telefono</label>
                                                                 <input name="telefono" id="telefono" type="text" class="form-control" value="<?php echo $row["telefono"] ?>"required>
                                                             </div>
@@ -194,6 +189,24 @@ $consulta ="SELECT * FROM categoria";
                                                                 <input name="email" id="email" type="text" class="form-control" value="<?php echo $row["email"] ?>"required>
                                                             </div>
                                                             <div class="position-relative form-group">
+                                                                <label for="provedores" class="">ciudad</label>
+                                                                <input name="localidad" id="localidad" type="text" class="form-control" value="<?php echo $row["localidad"] ?>" required>
+                                                            </div>
+                                                            <div class="position-relative form-group">
+                                                            <label for="provedores" class="">Pais</label>
+                                                            <select name="pais" id="pais" type="text" class="form-control">
+                                                                <option value="0">Seleccione un pais</option>
+                                                                <?php $resu = mysqli_query($conectar, $cpais); 
+                                                                while ($row = mysqli_fetch_assoc($resu)) { ?>
+                                                                <option value="<?php echo $row["id_pais"];?>"><?php echo $row["paisnombre"];?></option>
+                                                                <?php } mysqli_free_result($resu); ?>
+                                                            </select>
+                                                            </div>
+
+                                        
+                                                            <div class="position-relative form-group" id="lista2">
+                                                            </div>
+                                                                <div class="position-relative form-group">
                                                                 <label for="provedores" class="">Categoria</label>
                                                                 <select name="id_categoria" id="cat" type="text" class="form-control">
                                                                 <?php $R = mysqli_query($conectar, $consulta); 
@@ -225,3 +238,25 @@ $consulta ="SELECT * FROM categoria";
 </body>
 
 </html>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#pais').val(1);
+		recargarLista();
+
+		$('#pais').change(function(){
+			recargarLista();
+		});
+	})
+</script>
+<script type="text/javascript">
+	function recargarLista(){
+		$.ajax({
+			type:"POST",
+			url:"funciones/datosep.php",
+			data:"estado=" + $('#pais').val(),
+			success:function(r){
+				$('#lista2').html(r);
+			}
+		});
+	}
+</script>
