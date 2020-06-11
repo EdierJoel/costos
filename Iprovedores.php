@@ -2,6 +2,8 @@
 include 'funciones/db.php';
 
 $consulta ="SELECT * FROM categoria";
+$cpais ="SELECT * FROM paises";
+$paises ="SELECT P.id_pais, p.paisnombre, e.id_estado, e.estadonombre FROM paises p INNER JOIN estados e on e.id_p = p.id_pais";
 
 ?>
 <!doctype html>
@@ -168,17 +170,36 @@ $consulta ="SELECT * FROM categoria";
                                             <input name="codigopostal" id="cp" type="text" class="form-control">
                                         </div>
                                         <div class="position-relative form-group">
+                                            <label for="pais" class="">Pais</label>
+                                            <select name="pais" id="pais" type="text" class="form-control">
+                                            <option value="0">Seleccione un pais</option>
+                                            <?php $resu = mysqli_query($conectar, $cpais); 
+                                                    while ($row = mysqli_fetch_assoc($resu)) { ?>
+                                                    <option value="<?php echo $row["id_pais"];?>"><?php echo $row["paisnombre"];?></option>
+                                                    <?php } mysqli_free_result($resu); ?>
+                                            </select>
+                                        </div>
+
+                                        
+                                        <div class="position-relative form-group">
+                                            <label for="estado" class="">Estado</label>
+                                            
+                                            <select name="estado" id="estado" type="text" class="form-control">
+                                            <option value="0">Seleccione un estado</option>
+                                            <?php $resul = mysqli_query($conectar, $paises); 
+                                                    while ($row = mysqli_fetch_assoc($resul)) { ?>
+                                                    
+                                                    <option value="<?php echo $row["id_estado"];?>"><?php echo $row["estadonombre"];?></option>
+                                                    <?php } mysqli_free_result($resul); ?>
+                                            </select>
+                                        </div>
+
+                                        <div class="position-relative form-group">
                                             <label for="localidad" class="">Localidad</label>
                                             <input name="localidad" id="localidad" type="text" class="form-control">
                                         </div>
-                                        <div class="position-relative form-group">
-                                            <label for="estado" class="">Estado</label>
-                                            <input name="estado" id="estado" type="text" class="form-control">
-                                        </div>
-                                        <div class="position-relative form-group">
-                                            <label for="pais" class="">Pais</label>
-                                            <input name="pais" id="pais" type="text" class="form-control">
-                                        </div>
+                                        
+
                                         <div class="position-relative form-group">
                                             <label for="telefono" class="">Telefono</label>
                                             <input name="telefono" id="telefono" type="text" class="form-control">
@@ -190,8 +211,10 @@ $consulta ="SELECT * FROM categoria";
                                         <div class="position-relative form-group">
                                         <label for="id_categoria" class="">Categoria</label>
                                             <select name="id_categoria" id="id_cat" type="text" class="form-control">
+                                            <option value="0">Seleccione una categoria</option>
                                             <?php $resultado = mysqli_query($conectar, $consulta); 
                                                     while ($row = mysqli_fetch_assoc($resultado)) { ?>
+                                                    
                                                     <option value="<?php echo $row["id"];?>"><?php echo $row["nombre"];?></option>
                                                     <?php } mysqli_free_result($resultado); ?>
                                             </select>
