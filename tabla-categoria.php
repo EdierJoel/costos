@@ -1,5 +1,5 @@
 <?php
-include("db.php");
+include("funciones/db.php");
 $cat = "SELECT * FROM categoria";
 ?>
 

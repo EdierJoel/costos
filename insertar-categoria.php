@@ -148,7 +148,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Categoria</h5>
 
-                                    <form action="insertar.php" method="POST">
+                                    <form action="funciones/insertar.php" method="POST">
                                         <div class="position-relative form-group">
                                             <label for="categoria" class="">Nombre de Categoria</label>
                                             <input name="categoria" id="cat" type="text" class="form-control" required>
