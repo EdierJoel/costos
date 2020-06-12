@@ -5,12 +5,11 @@
     $nombre = $_POST['nombre'];
     $dom = $_POST['domicilio'];
     $cp = $_POST['codigopostal'];
-    $tel = $_POST['telefono'];
-    $email = $_POST['email'];
     $loca = $_POST['localidad'];
     $estado = $_POST['estado'];
     $pais = $_POST['pais'];
-    
+    $tel = $_POST['telefono'];
+    $email = $_POST['email'];
     $cat = $_POST['id_categoria'];
 
     $actu="UPDATE provedor SET nombre_pro = '$nombre', domicilio = '$dom', cp = '$cp', 

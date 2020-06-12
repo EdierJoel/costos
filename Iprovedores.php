@@ -234,7 +234,7 @@ $paises ="SELECT P.id_pais, p.paisnombre, e.id_estado, e.estadonombre FROM paise
 </html>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$('#pais').val(1);
+		//$('#pais').val(1);
 		recargarLista();
 
 		$('#pais').change(function(){

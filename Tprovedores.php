@@ -177,9 +177,9 @@
                                                     <th>Razon social</th>
                                                     <th>Domicilio</th>
                                                     <th>Codigo Postal</th>
-                                                    <th>Localidad</th>
-                                                    <th>Estado</th>
                                                     <th>Pais</th>
+                                                    <th>Estado</th>
+                                                    <th>Localidad</th>
                                                     <th>Telefono</th>
                                                     <th>Email</th>
                                                     <th>Categoria</th>
@@ -197,9 +197,9 @@
                                                     <td><?php echo $row["nombre_pro"] ?></td>
                                                     <td><?php echo $row["domicilio"] ?></td>
                                                     <td><?php echo $row["cp"] ?></td>
-                                                    <td><?php echo $row["localidad"] ?></td>
-                                                    <td><?php echo $row["estado"] ?></td>
                                                     <td><?php echo $row["pais"] ?></td>
+                                                    <td><?php echo $row["estado"] ?></td>
+                                                    <td><?php echo $row["localidad"] ?></td>                                              
                                                     <td><?php echo $row["telefono"] ?></td>
                                                     <td><?php echo $row["email"] ?></td>
                                                     <td><?php echo $row["nombre"] ?></td>
