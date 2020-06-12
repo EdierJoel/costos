@@ -179,7 +179,7 @@
                                                     <th>Codigo Postal</th>
                                                     <th>Pais</th>
                                                     <th>Estado</th>
-                                                    <th>Localidad</th>
+                                                    <th>Ciudad</th>
                                                     <th>Telefono</th>
                                                     <th>Email</th>
                                                     <th>Categoria</th>
@@ -197,8 +197,8 @@
                                                     <td><?php echo $row["nombre_pro"] ?></td>
                                                     <td><?php echo $row["domicilio"] ?></td>
                                                     <td><?php echo $row["cp"] ?></td>
-                                                    <td><?php echo $row["estadonombre"] ?></td>
                                                     <td><?php echo $row["paisnombre"] ?></td>
+                                                    <td><?php echo $row["estadonombre"] ?></td>
                                                     <td><?php echo $row["localidad"] ?></td>                                              
                                                     <td><?php echo $row["telefono"] ?></td>
                                                     <td><?php echo $row["email"] ?></td>

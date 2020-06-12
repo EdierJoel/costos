@@ -192,10 +192,10 @@ $cpais ="SELECT * FROM paises";
                                                                 </div>
 
                                         
-                                                        <div class="position-relative form-group" id="lista2" >
+                                                            <div class="position-relative form-group" id="listaestado" >
 
-                                                         </div>
-                                        <div class="position-relative form-group">
+                                                            </div>
+                                                            <div class="position-relative form-group">
                                                                 <label for="provedores" class="">Ciudad</label>
                                                                 <input name="localidad" id="localidad" type="text" class="form-control" value="<?php echo $row["localidad"] ?>" required>
                                                             </div>
@@ -258,7 +258,7 @@ $cpais ="SELECT * FROM paises";
 			url:"funciones/datosep.php",
 			data:"estado=" + $('#pais').val(),
 			success:function(e){
-				$('#lista2').html(e);
+				$('#listaestado').html(e);
 			}
 		});
 	}
