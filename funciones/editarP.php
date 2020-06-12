@@ -13,7 +13,7 @@
     $cat = $_POST['id_categoria'];
 
     $actu="UPDATE provedor SET nombre_pro = '$nombre', domicilio = '$dom', cp = '$cp', 
-    localidad = '$loca', estado = '$estado', pais = '$pais', telefono = '$tel', email = '$email', id_categoria = '$cat' WHERE id = '$id'";
+    localidad = '$loca', id_estado = '$estado', id_pais = '$pais', telefono = '$tel', email = '$email', id_categoria = '$cat' WHERE id = '$id'";
     $resultado=mysqli_query($conectar, $actu);
     
     header('location: ../Tprovedores.php');

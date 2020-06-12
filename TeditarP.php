@@ -179,23 +179,24 @@ $cpais ="SELECT * FROM paises";
                                                                 <input name="codigopostal" id="cp" type="text" class="form-control" value="<?php echo $row["cp"] ?>" required>
                                                             </div>
                                                             
+                                                            
                                                             <div class="position-relative form-group">
-                                            <label for="pais" class="">Pais</label>
-                                            <select name="pais" id="pais" type="text" class="form-control">
-                                            <option value="0">Seleccione un pais</option>
-                                            <?php $resu = mysqli_query($conectar, $cpais); 
-                                                    while ($row = mysqli_fetch_assoc($resu)) { ?>
-                                                    <option value="<?php echo $row["id_pais"];?>"><?php echo $row["paisnombre"];?></option>
-                                                    <?php } mysqli_free_result($resu); ?>
-                                            </select>
-                                        </div>
+                                                            <label for="pais" class="">Pais</label>
+                                                                <select name="pais" id="pais" type="text" class="form-control">
+                                                                <option value="0">Seleccione un pais</option>
+                                                                <?php $resu = mysqli_query($conectar, $cpais); 
+                                                                while ($row = mysqli_fetch_assoc($resu)) { ?>
+                                                                <option value="<?php echo $row["id_pais"];?>"><?php echo $row["paisnombre"];?></option>
+                                                                <?php } mysqli_free_result($resu); ?>
+                                                                </select>
+                                                                </div>
 
                                         
-                                        <div class="position-relative form-group" id="lista2" >
+                                                        <div class="position-relative form-group" id="lista2" >
 
-                                        </div>
+                                                         </div>
                                         <div class="position-relative form-group">
-                                                                <label for="provedores" class="">Localidad</label>
+                                                                <label for="provedores" class="">Ciudad</label>
                                                                 <input name="localidad" id="localidad" type="text" class="form-control" value="<?php echo $row["localidad"] ?>" required>
                                                             </div>
                                                             <div class="position-relative form-group">
@@ -206,6 +207,7 @@ $cpais ="SELECT * FROM paises";
                                                                 <label for="provedores" class="">Email</label>
                                                                 <input name="email" id="email" type="text" class="form-control" value="<?php echo $row["email"] ?>"required>
                                                             </div>
+                                                            
                                                             <div class="position-relative form-group">
                                                                 <label for="provedores" class="">Categoria</label>
                                                                 <select name="id_categoria" id="cat" type="text" class="form-control">

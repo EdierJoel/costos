@@ -16,6 +16,7 @@ $cat = "SELECT * FROM reglamento";
     <meta name="description" content="Tables are the backbone of almost all web applications.">
     <meta name="msapplication-tap-highlight" content="no">
     <link href="./main.css" rel="stylesheet">
+    
 </head>
 
 <script>
@@ -147,11 +148,7 @@ $cat = "SELECT * FROM reglamento";
                                     </div>
                                 </div>
                             </div>
-                            <div class="page-title-actions">
-                                <div class="d-inline-block dropdown">
-                                    <a href="Ireglamento.php" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-outline-success">Nuevo Reglamento</a>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                     <div class="container">
@@ -180,10 +177,9 @@ $cat = "SELECT * FROM reglamento";
                                                         <td><?php echo $row["fecha"] ?></td>
 
                                                         <td>
-                                                            <a href="funciones/TeditarR.php?id=<?php echo $row["id"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-info">Editar
+                                                            <a href="TeditarR.php?id=<?php echo $row["id"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-info">Editar
                                                             </a>
-                                                            <a href="funciones/eliminarR.php?id=<?php echo $row["id"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-danger" onclick="return confirmar()">Eliminar
-                                                            </a>
+                                                            
                                                         </td>
                                                 </tr>
                                             <?php }

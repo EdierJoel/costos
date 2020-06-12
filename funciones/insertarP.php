@@ -13,7 +13,7 @@
     $cat = $_POST['id_categoria'];
 
     
-            $consulta="INSERT INTO provedor (nombre_pro, domicilio, cp, localidad, estado, pais, telefono, email, id_categoria)
+            $consulta="INSERT INTO provedor (nombre_pro, domicilio, cp, localidad, id_estado, id_pais, telefono, email, id_categoria)
             VALUES ('$nombre','$dom','$cp','$loca','$estado','$pais','$tel','$email','$cat')";
             $resul=mysqli_query($conectar, $consulta);
         

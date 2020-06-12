@@ -17,6 +17,12 @@ $rep = "SELECT * FROM reglamento WHERE id = '$id'";
     <meta name="description" content="Tables are the backbone of almost all web applications.">
     <meta name="msapplication-tap-highlight" content="no">
     <link href="./main.css" rel="stylesheet">
+    <script src="https://cdn.tiny.cloud/1/rtfwyg2zkhryhq9ksxwnl01v5labnduoykspk5b3j0ui7e5b/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+    tinymce.init({
+      selector: '#descripcion'
+    });
+  </script>
 </head>
 
 <body>
@@ -166,7 +172,7 @@ $rep = "SELECT * FROM reglamento WHERE id = '$id'";
                                                             </div>
                                                             <div class="position-relative form-group">
                                                                 <label for="reglamento" class="">Descripcion</label>
-                                                                <input name="descripcion" id="cat" type="text" class="form-control" value="<?php echo $row["descripcion"] ?>" required>
+                                                                <textarea name="descripcion" id="descripcion" type="text" class="form-control" required><?php echo $row["descripcion"] ?></textarea>
                                                             </div>
                                                             <div class="position-relative form-group">
                                                                 <label for="categoria" class="">Fecha de Creacion</label>
@@ -191,6 +197,16 @@ $rep = "SELECT * FROM reglamento WHERE id = '$id'";
         </div>
     </div>
     <script type="text/javascript" src="./assets/scripts/main.js"></script>
+    <script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+      toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+      toolbar_mode: 'floating',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name',
+    });
+  </script>
 </body>
 
 </html>
