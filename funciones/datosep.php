@@ -2,7 +2,8 @@
 include 'db.php';
 $estado=$_POST['estado'];
 
-	$tabla="SELECT * from estado where id_p='$estado'";
+
+	$tabla="SELECT * from estado where id_p='$estado' ";
 
 	$resul=mysqli_query($conectar,$tabla);
 

@@ -180,6 +180,19 @@ $cpais ="SELECT * FROM paises";
                                                             </div>
                                                             
                                                             
+                                                            
+                                                            <div class="position-relative form-group">
+                                                                <label for="provedores" class="">Ciudad</label>
+                                                                <input name="localidad" id="localidad" type="text" class="form-control" value="<?php echo $row["localidad"] ?>" required>
+                                                            </div>
+                                                            <div class="position-relative form-group">
+                                                                <label for="provedores" class="">Telefono</label>
+                                                                <input name="telefono" id="telefono" type="text" class="form-control" value="<?php echo $row["telefono"] ?>"required>
+                                                            </div>
+                                                            <div class="position-relative form-group">
+                                                                <label for="provedores" class="">Email</label>
+                                                                <input name="email" id="email" type="text" class="form-control" value="<?php echo $row["email"] ?>"required>
+                                                            </div>
                                                             <div class="position-relative form-group">
                                                             <label for="pais" class="">Pais</label>
                                                                 <select name="pais" id="pais" type="text" class="form-control">
@@ -192,20 +205,8 @@ $cpais ="SELECT * FROM paises";
                                                                 </div>
 
                                         
-                                                            <div class="position-relative form-group" id="listaestado" >
+                                                            <div class="position-relative form-group" id="lista2" >
 
-                                                            </div>
-                                                            <div class="position-relative form-group">
-                                                                <label for="provedores" class="">Ciudad</label>
-                                                                <input name="localidad" id="localidad" type="text" class="form-control" value="<?php echo $row["localidad"] ?>" required>
-                                                            </div>
-                                                            <div class="position-relative form-group">
-                                                                <label for="provedores" class="">Telefono</label>
-                                                                <input name="telefono" id="telefono" type="text" class="form-control" value="<?php echo $row["telefono"] ?>"required>
-                                                            </div>
-                                                            <div class="position-relative form-group">
-                                                                <label for="provedores" class="">Email</label>
-                                                                <input name="email" id="email" type="text" class="form-control" value="<?php echo $row["email"] ?>"required>
                                                             </div>
                                                             
                                                             <div class="position-relative form-group">
@@ -240,10 +241,9 @@ $cpais ="SELECT * FROM paises";
 </body>
 
 </html>
-
-    <script type="text/javascript">
+<script type="text/javascript">
 	$(document).ready(function(){
-		//$('#pais').val(1);
+		$('#pais').val(1);
 		recargarLista();
 
 		$('#pais').change(function(){
@@ -255,10 +255,10 @@ $cpais ="SELECT * FROM paises";
 	function recargarLista(){
 		$.ajax({
 			type:"POST",
-			url:"funciones/datosep.php",
+			url:"funciones/datos.php",
 			data:"estado=" + $('#pais').val(),
-			success:function(e){
-				$('#listaestado').html(e);
+			success:function(r){
+				$('#lista2').html(r);
 			}
 		});
 	}
