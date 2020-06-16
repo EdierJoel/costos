@@ -148,10 +148,10 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Categoria</h5>
 
-                                    <form action="funciones/insertar.php" method="POST">
+                                    <form action="funciones/insertar.php" method="POST" onsubmit="return validarCat();">
                                         <div class="position-relative form-group">
                                             <label for="categoria" class="">Nombre de Categoria</label>
-                                            <input name="categoria" id="cat" type="text" class="form-control" required>
+                                            <input name="categoria" id="cat" type="text" class="form-control">
                                         </div>
                                         <button type="submit" aria-haspopup="true"
                                             aria-expanded="false" class="btn-shadow btn btn-success">
@@ -167,6 +167,7 @@
             </div>
         </div>
     </div>
+    <script src="funciones/validarCat.js"></script>
     <script type="text/javascript" src="./assets/scripts/main.js"></script>
 </body>
 
