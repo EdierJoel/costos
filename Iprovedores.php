@@ -3,7 +3,7 @@ include 'funciones/db.php';
 
 $consulta ="SELECT * FROM categoria";
 $cpais ="SELECT * FROM paises";
-$paises ="SELECT P.id_pais, p.paisnombre, e.id_estado, e.estadonombre FROM paises p INNER JOIN estados e on e.id_p = p.id_pais";
+$paises ="SELECT P.id_pais, p.paisnombre, e.id_estado, e.estadonombre FROM paises p INNER JOIN estado e on e.id_p = p.id_pais";
 
 ?>
 <!doctype html>

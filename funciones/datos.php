@@ -5,7 +5,7 @@ $estado=$_POST['estado'];
 	$sql="SELECT id_estado,
 			estadonombre,
 			 id_p 
-		from estados 
+		from estado 
 		where id_p='$estado'";
 
 	$result=mysqli_query($conectar,$sql);

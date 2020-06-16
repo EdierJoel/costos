@@ -1,7 +1,7 @@
 <?php 
     include ("funciones/db.php");
     $prov = "SELECT p1.id, p1.nombre_pro, p1.domicilio, p1.cp, p1.localidad, p3.estadonombre, p4.paisnombre, p1.telefono, p1.email, p2.nombre 
-    FROM provedor p1 INNER JOIN categoria p2 on p1.id_categoria = p2.id INNER JOIN estados p3 on p1.id_estado = p3.id_estado INNER JOIN paises p4 on p1.id_pais = p4.id_pais";
+    FROM provedor p1 INNER JOIN categoria p2 on p1.id_categoria = p2.id INNER JOIN estado p3 on p1.id_estado = p3.id_estado INNER JOIN paises p4 on p1.id_pais = p4.id_pais";
 ?>
 
 <!doctype html>
