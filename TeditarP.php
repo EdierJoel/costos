@@ -202,7 +202,7 @@ $cpais ="SELECT * FROM paises";
                                                             <div class="position-relative form-group">
                                                             <label for="pais" class="">Pais</label>
                                                                 <select name="pais" id="pais" type="text" class="form-control">
-                                                                <option value="0">Seleccione un pais</option>
+                                                                <option value="<?php echo $row["id_pais"];?>"><?php echo $row["paisnombre"];?></option>
                                                                 <?php $resu = mysqli_query($conectar, $cpais); 
                                                                 while ($row = mysqli_fetch_assoc($resu)) { ?>
                                                                 <option value="<?php echo $row["id_pais"];?>"><?php echo $row["paisnombre"];?></option>

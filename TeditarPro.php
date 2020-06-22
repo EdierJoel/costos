@@ -1,7 +1,9 @@
 <?php
 include("funciones/db.php");
 $id = $_GET["id"];
-$producto = "SELECT * FROM productos WHERE id_prod = '$id'";
+$producto = "SELECT p1.id_prod, p1.nombre_prod, p1.precio_prod, p1.des_prod, p1.fech_prod, p1.tel_prod, p1.horario, p2.nombre_cat, p3.nombre_pro, p1.img_prod, p1.img_prod_2, p1.img_prod_3
+    FROM productos p1 INNER JOIN categorias_prod p2 on p1.id_cat_prod = p2.id_cat_prod INNER JOIN provedor P3 ON p1.id_provedor = p3.id_provedor WHERE id_prod = '$id'";
+
 $categoria ="SELECT * FROM categorias_prod";
 $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
 ?>
@@ -204,25 +206,23 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                                                             <div class="position-relative form-group">
                                                             <label for="pais" class="">Categoria</label>
                                                                 <select name="id_categoria" id="cat" type="text" class="form-control">
-                                                                <option value="0">Seleccione una categoria</option>
+                                                                <option value="0"><?php echo $row["nombre_cat"];?></option>
                                                                 <?php $resu = mysqli_query($conectar, $categoria); 
                                                                 while ($row = mysqli_fetch_assoc($resu)) { ?>
                                                                 <option value="<?php echo $row["id_cat_prod"];?>"><?php echo $row["nombre_cat"];?></option>
                                                                 <?php } mysqli_free_result($resu); ?>
                                                                 </select>
-                                                                </div>
+                                                            </div>
 
-                                        
-                                                                                                                   
                                                             <div class="position-relative form-group">
-                                                                <label for="provedores" class="">provedor</label>
-                                                                <select name="id_provedor" id="prov" type="text" class="form-control">
-                                                                <option value="0">Seleccione un provedor</option>
-                                                                <?php $R = mysqli_query($conectar, $provedor); 
-                                                                     while ($row = mysqli_fetch_assoc($R)) { ?>
-                                                                        <option value="<?php echo $row["id_provedor"];?>"><?php echo $row["nombre_pro"]?></option>
-                                                                    <?php } mysqli_free_result($R); ?>
-                                                                 </select>
+                                                            <label for="id_categoria" class="">Provedor</label>
+                                                                <select name="id_provedor" id="id_pro" type="text" class="form-control">
+                                                                <option value="0"><?php echo $row["nombre_pro"];?></option>
+                                                                <?php $resultado = mysqli_query($conectar, $provedor); 
+                                                                while ($row = mysqli_fetch_assoc($resultado)) { ?>
+                                                                <option value="<?php echo $row["id_provedor"];?>"><?php echo $row["nombre_pro"];?></option>
+                                                                <?php } mysqli_free_result($resultado); ?>
+                                                                </select>
                                                             </div>
                                                             <div class="position-relative form-group">
                                                                 <label for="provedores" class="">Imagen 1</label>
