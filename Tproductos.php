@@ -1,7 +1,9 @@
 <?php 
     include ("funciones/db.php");
-    $prov = "SELECT p1.id_provedor, p1.nombre_pro, p1.domicilio, p1.cp, p1.localidad, p3.estadonombre, p4.paisnombre, p1.telefono, p1.email, p2.nombre 
-    FROM provedor p1 INNER JOIN categoria p2 on p1.id_categoria = p2.id_cat_provedor INNER JOIN estado p3 on p1.id_estado = p3.id_estado INNER JOIN paises p4 on p1.id_pais = p4.id_pais";
+    
+    $productos = "SELECT p1.id_prod, p1.nombre_prod, p1.precio_prod, p1.des_prod, p1.fech_prod, p1.tel_prod, p1.horario, p2.nombre_cat, p3.nombre_pro, p1.img_prod, p1.img_prod_2, p1.img_prod_3
+    FROM productos p1 INNER JOIN categorias_prod p2 on p1.id_cat_prod = p2.id_cat_prod INNER JOIN provedor P3 ON p1.id_provedor = p3.id_provedor";
+
 ?>
 
 <!doctype html>
@@ -158,14 +160,14 @@
                                     </i>
                                 </div>
                                 <div>Módulo de Costos
-                                    <div class="page-title-subheading">Tabla de Proveedores
+                                    <div class="page-title-subheading">Productos
                                     </div>
                                 </div>
                             </div>
                             <div class="page-title-actions">
                                 <div class="d-inline-block dropdown">
-                                    <a href="Iprovedores.php"aria-haspopup="true"
-                                    aria-expanded="false" class="btn-shadow btn btn-outline-success">Nuevo Proveedor</a>
+                                    <a href="Iproducto.php"aria-haspopup="true"
+                                    aria-expanded="false" class="btn-shadow btn btn-outline-success">Nuevo Producto</a>
                                 </div>
                             </div>
                         </div>
@@ -174,47 +176,51 @@
                         <div class="col-lg-12">
                             <div class="main-card mb-3 card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Proveedores</h5>
+                                    <h5 class="card-title">Producto</h5>
                                     <div class="table-responsive">
                                         <table class="mb-0 table">
                                             <thead>
                                                 <tr>
                                                     
-                                                    <th>Razon social</th>
-                                                    <th>Domicilio</th>
-                                                    <th>Codigo Postal</th>
-                                                    <th>Pais</th>
-                                                    <th>Estado</th>
-                                                    <th>Ciudad</th>
+                                                    <th>Nombre</th>
+                                                    <th>Precio</th>
+                                                    <th>Descripcion</th>
+                                                    <th>Fecha de publicacion</th>
                                                     <th>Telefono</th>
-                                                    <th>Email</th>
+                                                    <th>Horario</th>
                                                     <th>Categoria</th>
+                                                    <th>Proveedor</th>
+                                                    <th>Imagen 1</th>
+                                                    <th>Imagen 2</th>
+                                                    <th>Imagen 3</th>
                                                     <th>Acciones</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <?php $resultado = mysqli_query($conectar, $prov);
+                                                    <?php $resultado = mysqli_query($conectar, $productos);
                                                     
                                                     
                                                     while ($row = mysqli_fetch_assoc($resultado)) { ?>
 
                                                     
+                                                    <td><?php echo $row["nombre_prod"] ?></td>
+                                                    <td><?php echo $row["precio_prod"] ?></td>
+                                                    <td><?php echo $row["des_prod"] ?></td>
+                                                    <td><?php echo $row["fech_prod"] ?></td>
+                                                    <td><?php echo $row["tel_prod"] ?></td>
+                                                    <td><?php echo $row["horario"] ?></td>                                              
+                                                    <td><?php echo $row["nombre_cat"] ?></td>
                                                     <td><?php echo $row["nombre_pro"] ?></td>
-                                                    <td><?php echo $row["domicilio"] ?></td>
-                                                    <td><?php echo $row["cp"] ?></td>
-                                                    <td><?php echo $row["paisnombre"] ?></td>
-                                                    <td><?php echo $row["estadonombre"] ?></td>
-                                                    <td><?php echo $row["localidad"] ?></td>                                              
-                                                    <td><?php echo $row["telefono"] ?></td>
-                                                    <td><?php echo $row["email"] ?></td>
-                                                    <td><?php echo $row["nombre"] ?></td>
+                                                    <td><?php echo $row["img_prod"] ?></td>
+                                                    <td><?php echo $row["img_prod_2"] ?></td>
+                                                    <td><?php echo $row["img_prod_3"] ?></td>
 
 
                                                     <td>
-                                                    <a href="TeditarP.php?id=<?php echo $row["id_provedor"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-info">Editar
+                                                    <a href="TeditarP.php?id=<?php echo $row["id_prod"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-info">Editar
                                                                 </a>
-                                                    <a href="funciones/eliminarP.php?id=<?php echo $row["id_provedor"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-danger" onclick="return confirmar()">Eliminar
+                                                    <a href="funciones/elimiar_pro.php?id=<?php echo $row["id_prod"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-danger" onclick="return confirmar()">Eliminar
                                                                 </a>
                                                     </td>
                                                 </tr>

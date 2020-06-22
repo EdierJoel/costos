@@ -1,7 +1,7 @@
 <?php
 include("funciones/db.php");
 $id = $_GET["id"];
-$prov = "SELECT * FROM provedor WHERE id = '$id'";
+$prov = "SELECT * FROM provedor WHERE id_provedor = '$id'";
 $consulta ="SELECT * FROM categoria";
 $cpais ="SELECT * FROM paises";
 ?>
@@ -124,6 +124,12 @@ $cpais ="SELECT * FROM paises";
                                     Categorias
                                 </a>
                             </li>
+                            <li>
+                                <a href="Tproductos.php">
+                                    <i class="metismenu-icon pe-7s-albums"></i>
+                                    Productos
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -164,7 +170,7 @@ $cpais ="SELECT * FROM paises";
 
                                                         <form action="funciones/editarP.php" method="POST" onsubmit="return validar();">
                                                         <div class="position-relative form-group">
-                                                                <input name="id" type="hidden" class="form-control" value="<?php echo $row["id"] ?>">
+                                                                <input name="id" type="hidden" class="form-control" value="<?php echo $row["id_provedor"] ?>">
                                                             </div>
                                                             <div class="position-relative form-group">
                                                                 <label for="provedores" class="">Nombre o Razon social</label>
@@ -214,7 +220,7 @@ $cpais ="SELECT * FROM paises";
                                                                 <select name="id_categoria" id="cat" type="text" class="form-control">
                                                                 <?php $R = mysqli_query($conectar, $consulta); 
                                                                      while ($row = mysqli_fetch_assoc($R)) { ?>
-                                                                        <option value="<?php echo $row["id"];?>"><?php echo $row["nombre"]?></option>
+                                                                        <option value="<?php echo $row["id_cat_provedor"];?>"><?php echo $row["nombre"]?></option>
                                                                     <?php } mysqli_free_result($R); ?>
                                                                  </select>
                                                             </div>

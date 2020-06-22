@@ -128,6 +128,12 @@ $paises ="SELECT P.id_pais, p.paisnombre, e.id_estado, e.estadonombre FROM paise
                                     Categorias
                                 </a>
                             </li>
+                            <li>
+                                <a href="Tproductos.php">
+                                    <i class="metismenu-icon pe-7s-albums"></i>
+                                    Productos
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -210,7 +216,7 @@ $paises ="SELECT P.id_pais, p.paisnombre, e.id_estado, e.estadonombre FROM paise
                                             <?php $resultado = mysqli_query($conectar, $consulta); 
                                                     while ($row = mysqli_fetch_assoc($resultado)) { ?>
                                                     
-                                                    <option value="<?php echo $row["id"];?>"><?php echo $row["nombre"];?></option>
+                                                    <option value="<?php echo $row["id_cat_provedor"];?>"><?php echo $row["nombre"];?></option>
                                                     <?php } mysqli_free_result($resultado); ?>
                                             </select>
                                         </div>

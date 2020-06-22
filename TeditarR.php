@@ -124,6 +124,12 @@ $rep = "SELECT * FROM reglamento WHERE id = '$id'";
                                     Categorias
                                 </a>
                             </li>
+                            <li>
+                                <a href="Tproductos.php">
+                                    <i class="metismenu-icon pe-7s-albums"></i>
+                                    Productos
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>

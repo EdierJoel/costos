@@ -4,8 +4,8 @@
 
     $id = $_GET['id'];
 
-    $eliminar="DELETE FROM provedor WHERE id_provedor = '$id'";
+    $eliminar="DELETE FROM productos WHERE id_prod = '$id'";
     $resultado=mysqli_query($conectar, $eliminar);
     
-    header('location: ../Tprovedores.php');
+    header('location: ../Tproductos.php');
     ?>

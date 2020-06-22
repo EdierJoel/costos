@@ -1,40 +1,31 @@
-<?php 
-    include ("funciones/db.php");
-    $prov = "SELECT p1.id_provedor, p1.nombre_pro, p1.domicilio, p1.cp, p1.localidad, p3.estadonombre, p4.paisnombre, p1.telefono, p1.email, p2.nombre 
-    FROM provedor p1 INNER JOIN categoria p2 on p1.id_categoria = p2.id_cat_provedor INNER JOIN estado p3 on p1.id_estado = p3.id_estado INNER JOIN paises p4 on p1.id_pais = p4.id_pais";
-?>
+<?php
+include 'funciones/db.php';
 
+$categoria ="SELECT * FROM categorias_prod";
+$provedor = "SELECT id_provedor, nombre_pro FROM provedor";
+
+?>
 <!doctype html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Provedores</title>
+    <title>Tablas Categorias</title>
     <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="description" content="Tables are the backbone of almost all web applications.">
     <meta name="msapplication-tap-highlight" content="no">
     <link href="./main.css" rel="stylesheet">
-</head>
-
-<script type="text/javascript">
-
-    function confirmar(){
-        var respuesta = confirm("Está seguro de eliminar este registro");
-
-        if (respuesta == true){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-        
-    </script>
-
+    <script src="https://cdn.tiny.cloud/1/rtfwyg2zkhryhq9ksxwnl01v5labnduoykspk5b3j0ui7e5b/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+    tinymce.init({
+      selector: '#descripcion'
+    });
+  </script>
+    
 <body>
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <div class="app-header header-shadow">
@@ -158,70 +149,91 @@
                                     </i>
                                 </div>
                                 <div>Módulo de Costos
-                                    <div class="page-title-subheading">Tabla de Proveedores
+                                    <div class="page-title-subheading">Insertar Producto
                                     </div>
                                 </div>
                             </div>
                             <div class="page-title-actions">
                                 <div class="d-inline-block dropdown">
-                                    <a href="Iprovedores.php"aria-haspopup="true"
-                                    aria-expanded="false" class="btn-shadow btn btn-outline-success">Nuevo Proveedor</a>
+                                    <a href="Tprovedores.php"aria-haspopup="true"
+                                    aria-expanded="false" class="btn-shadow btn btn-danger">Cancelar</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-12">
+                    <div class="container">
+                        <div class="col-md-10">
                             <div class="main-card mb-3 card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Proveedores</h5>
-                                    <div class="table-responsive">
-                                        <table class="mb-0 table">
-                                            <thead>
-                                                <tr>
-                                                    
-                                                    <th>Razon social</th>
-                                                    <th>Domicilio</th>
-                                                    <th>Codigo Postal</th>
-                                                    <th>Pais</th>
-                                                    <th>Estado</th>
-                                                    <th>Ciudad</th>
-                                                    <th>Telefono</th>
-                                                    <th>Email</th>
-                                                    <th>Categoria</th>
-                                                    <th>Acciones</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <?php $resultado = mysqli_query($conectar, $prov);
-                                                    
-                                                    
+                                    <h5 class="card-title">Productos</h5>
+
+                                    <form action="funciones/insertar_pro.php" method="POST" onsubmit="return validar();">
+                                        <div class="position-relative form-group">
+                                            <label for="nombre" class="">Nombre</label><p id="mensaje">
+                                            <input name="nombre" id="nombre" type="text" class="form-control">
+                                        </div>
+                                        <div class="position-relative form-group">
+                                            <label for="domicilio" class="">precio</label>
+                                            <input name="precio" id="precio" type="tex" class="form-control">
+                                        </div>
+                                        <div class="position-relative form-group">
+                                            <label for="codigpostal" class="">Descripcion</label>
+                                            <textarea name="descripcion" id="descripcion" type="text" class="form-control"></textarea>
+                                        </div>
+
+                                        <div class="position-relative form-group">
+                                            <label for="localidad" class="">Fecha de publicacion</label>
+                                            <input name="fechaP" id="fechaP" type="date" class="form-control">
+                                        </div>
+                                        
+
+                                        <div class="position-relative form-group">
+                                            <label for="telefono" class="">Telefono</label>
+                                            <input name="telefono" id="telefono" type="text" class="form-control">
+                                        </div>
+                                        <div class="position-relative form-group">
+                                            <label for="email" class="">Horario</label>
+                                            <input name="horario" id="horario" type="date" class="form-control">
+                                        </div>
+                                        <div class="position-relative form-group">
+                                        <label for="id_categoria" class="">Categoria</label>
+                                            <select name="id_categoria" id="id_cat" type="text" class="form-control">
+                                            <option value="0">Seleccione una categoria</option>
+                                            <?php $resultado = mysqli_query($conectar, $categoria); 
                                                     while ($row = mysqli_fetch_assoc($resultado)) { ?>
-
                                                     
-                                                    <td><?php echo $row["nombre_pro"] ?></td>
-                                                    <td><?php echo $row["domicilio"] ?></td>
-                                                    <td><?php echo $row["cp"] ?></td>
-                                                    <td><?php echo $row["paisnombre"] ?></td>
-                                                    <td><?php echo $row["estadonombre"] ?></td>
-                                                    <td><?php echo $row["localidad"] ?></td>                                              
-                                                    <td><?php echo $row["telefono"] ?></td>
-                                                    <td><?php echo $row["email"] ?></td>
-                                                    <td><?php echo $row["nombre"] ?></td>
-
-
-                                                    <td>
-                                                    <a href="TeditarP.php?id=<?php echo $row["id_provedor"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-info">Editar
-                                                                </a>
-                                                    <a href="funciones/eliminarP.php?id=<?php echo $row["id_provedor"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-danger" onclick="return confirmar()">Eliminar
-                                                                </a>
-                                                    </td>
-                                                </tr>
-                                                <?php } mysqli_free_result($resultado); ?>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                                    <option value="<?php echo $row["id_cat_prod"];?>"><?php echo $row["nombre_cat"];?></option>
+                                                    <?php } mysqli_free_result($resultado); ?>
+                                            </select>
+                                        </div>
+                                        <div class="position-relative form-group">
+                                        <label for="id_categoria" class="">Provedor</label>
+                                            <select name="id_provedor" id="id_pro" type="text" class="form-control">
+                                            <option value="0">Seleccione un provedor</option>
+                                            <?php $resultado = mysqli_query($conectar, $provedor); 
+                                                    while ($row = mysqli_fetch_assoc($resultado)) { ?>
+                                                    
+                                                    <option value="<?php echo $row["id_provedor"];?>"><?php echo $row["nombre_pro"];?></option>
+                                                    <?php } mysqli_free_result($resultado); ?>
+                                            </select>
+                                        </div>
+                                        <div class="position-relative form-group">
+                                            <label for="email" class="">Imagen 1</label>
+                                            <input name="img1" id="img1" type="text" class="form-control">
+                                        </div>
+                                        <div class="position-relative form-group">
+                                            <label for="email" class="">Imagen 2</label>
+                                            <input name="img2" id="img2" type="text" class="form-control">
+                                        </div>
+                                        <div class="position-relative form-group">
+                                            <label for="email" class="">Imagen 3</label>
+                                            <input name="img3" id="img3" type="text" class="form-control">
+                                        </div>
+                                        <button type="submit" id="btn" aria-haspopup="true"
+                                            aria-expanded="false" class="btn-shadow btn btn-success">
+                                            Agregar Producto
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -230,7 +242,18 @@
             </div>
         </div>
     </div>
+    <script src="funciones/validar.js"></script>
     <script type="text/javascript" src="./assets/scripts/main.js"></script>
+    <script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+      toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+      toolbar_mode: 'floating',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name',
+    });
+  </script>
 </body>
 
 </html>
