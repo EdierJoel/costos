@@ -221,15 +221,15 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                                         </div>
                                         <div class="position-relative form-group">
                                         <label for="email" class="">Imagen 1</label>
-                                            <input name="img1" id="img1" type="file" class="form-control">
+                                        <input name="img1" id="img1" type="file" class="form-control" value="<?php echo $row["img_prod"] ?>"required>
                                         </div>
                                         <div class="position-relative form-group">
                                             <label for="email" class="">Imagen 2</label>
-                                            <input name="img2" id="img2" type="file" class="form-control">
+                                            <input name="img2" id="img2" type="file" class="form-control" value="<?php echo $row["img_prod_2"] ?>"required>
                                         </div>
                                         <div class="position-relative form-group">
                                             <label for="email" class="">Imagen 3</label>
-                                            <input name="img3" id="img3" type="file" class="form-control">
+                                            <input name="img3" id="img3" type="file" class="form-control" value="<?php echo $row["img_prod_3"] ?>"required>
                                         </div>
                                         <button type="submit" id="btn" aria-haspopup="true"
                                             aria-expanded="false" class="btn-shadow btn btn-success">
