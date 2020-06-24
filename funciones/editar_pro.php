@@ -10,9 +10,9 @@
     $telefono = $_POST['telefono'];
     $cat = $_POST['id_categoria'];
     $prov = $_POST['id_provedor'];
-    $img1 = $_POST['img1'];
-    $img2 = $_POST['img2'];
-    $img3 = $_POST['img3'];
+    $img1 = $_POST['img_prod'];
+    $img2 = $_POST['img_prod_2'];
+    $img3 = $_POST['img_prod_3'];
 
     
             $consulta="UPDATE productos SET nombre_prod ='$nombre', precio_prod='$precio', des_prod = '$des',
