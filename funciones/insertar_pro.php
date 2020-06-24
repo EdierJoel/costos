@@ -18,6 +18,6 @@
             VALUES ('$nombre', '$precio','$des', '$fechap', '$img1', '$telefono', '$cat', '$prov', '$img2', '$img3')";
             $resul=mysqli_query($conectar, $consulta);
         
-            header('location: ../Tproductos.php');
+            header('location: ../Vi_producto.php');
     
     ?>
