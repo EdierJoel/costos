@@ -4,7 +4,7 @@
 
     $id = $_GET['id'];
 
-    $eliminar="DELETE FROM categoria WHERE id = '$id'";
+    $eliminar="DELETE FROM categoria WHERE id_cat_provedor = '$id'";
     $resultado=mysqli_query($conectar, $eliminar);
     
     header('location: ../tabla-categoria.php');

@@ -191,9 +191,9 @@ $cat = "SELECT * FROM categoria";
                                                         <td><?php echo $row["nombre"] ?></td>
 
                                                         <td>
-                                                            <a href="tabla-editar.php?id=<?php echo $row["id"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-info">Editar
+                                                            <a href="tabla-editar.php?id=<?php echo $row["id_cat_provedor"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-info">Editar
                                                                 </a>
-                                                            <a href="funciones/eliminar.php?id=<?php echo $row["id"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-danger" onclick="return confirmar()">Eliminar
+                                                            <a href="funciones/eliminar.php?id=<?php echo $row["id_cat_provedor"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-danger" onclick="return confirmar()">Eliminar
                                                                 </a>
                                                         </td>
                                                 </tr>
