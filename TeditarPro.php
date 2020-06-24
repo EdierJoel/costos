@@ -154,7 +154,7 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                                     </i>
                                 </div>
                                 <div>Módulo de Costos
-                                    <div class="page-title-subheading">Editar Proveedores
+                                    <div class="page-title-subheading">Editar Productos
                                     </div>
                                 </div>
                             </div>
@@ -169,7 +169,7 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                         <div class="col-lg-10">
                             <div class="main-card mb-3 card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Categorias</h5>
+                                    <h5 class="card-title">Productos</h5>
                                     <div class="table-responsive">
                                         <table class="mb-0 table">
                                             <tbody>

@@ -215,7 +215,7 @@
                                                     <td><?php echo $row["des_prod"] ?></td>
                                                     <td><?php echo $row["fech_prod"] ?></td>
                                                     <td><?php echo $row["tel_prod"] ?></td>
-                                                    <td><?php echo $row["horario"] ?></td>                                              
+                                                                                                
                                                     <td><?php echo $row["nombre_cat"] ?></td>
                                                     <td><?php echo $row["nombre_pro"] ?></td>
                                                     <td><?php echo $row["img_prod"] ?></td>
