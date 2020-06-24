@@ -1,8 +1,7 @@
 <?php
 include("funciones/db.php");
 $id = $_GET["id"];
-$producto = "SELECT p1.id_prod, p1.nombre_prod, p1.precio_prod, p1.des_prod, p1.fech_prod, p1.tel_prod, p1.horario, p2.nombre_cat, p3.nombre_pro, p1.img_prod, p1.img_prod_2, p1.img_prod_3
-    FROM productos p1 INNER JOIN categorias_prod p2 on p1.id_cat_prod = p2.id_cat_prod INNER JOIN provedor P3 ON p1.id_provedor = p3.id_provedor WHERE id_prod = '$id'";
+$producto = "SELECT *FROM productos WHERE id_prod = '$id'";
 
 $categoria ="SELECT * FROM categorias_prod";
 $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
@@ -169,9 +168,9 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                                         <table class="mb-0 table">
                                             <tbody>
                                                 <tr>
-                                                    <?php $resultado = mysqli_query($conectar, $producto);
+                                                    <?php $res = mysqli_query($conectar, $producto);
 
-                                                    while ($row = mysqli_fetch_assoc($resultado)) { ?>
+                                                    while ($row = mysqli_fetch_assoc($res)) { ?>
 
                                                         <form action="funciones/editar_pro.php" method="POST" onsubmit="return validar();">
                                                         <div class="position-relative form-group">
@@ -206,7 +205,7 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                                                             <div class="position-relative form-group">
                                                             <label for="pais" class="">Categoria</label>
                                                                 <select name="id_categoria" id="cat" type="text" class="form-control">
-                                                                <option value="0"><?php echo $row["nombre_cat"];?></option>
+                                                                <option value="0">Seleccione una categoria</option>
                                                                 <?php $resu = mysqli_query($conectar, $categoria); 
                                                                 while ($row = mysqli_fetch_assoc($resu)) { ?>
                                                                 <option value="<?php echo $row["id_cat_prod"];?>"><?php echo $row["nombre_cat"];?></option>
@@ -217,7 +216,7 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                                                             <div class="position-relative form-group">
                                                             <label for="id_categoria" class="">Provedor</label>
                                                                 <select name="id_provedor" id="id_pro" type="text" class="form-control">
-                                                                <option value="0"><?php echo $row["nombre_pro"];?></option>
+                                                                <option value="0">Seleccione un Provedor</option>
                                                                 <?php $resultado = mysqli_query($conectar, $provedor); 
                                                                 while ($row = mysqli_fetch_assoc($resultado)) { ?>
                                                                 <option value="<?php echo $row["id_provedor"];?>"><?php echo $row["nombre_pro"];?></option>
@@ -242,7 +241,7 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                                                     </form>
                                                 </tr>
                                             <?php }
-                                                    mysqli_free_result($resultado); ?>
+                                                    mysqli_free_result($res); ?>
                                             </tbody>
                                         </table>
                                     </div>
