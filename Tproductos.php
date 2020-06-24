@@ -194,7 +194,6 @@
                                                     <th>Descripcion</th>
                                                     <th>Fecha de publicacion</th>
                                                     <th>Telefono</th>
-                                                    <th>Horario</th>
                                                     <th>Categoria</th>
                                                     <th>Proveedor</th>
                                                     <th>Imagen 1</th>

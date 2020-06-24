@@ -167,17 +167,17 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                                 <div class="card-body">
                                     <h5 class="card-title">Productos</h5>
 
-                                    <form action="funciones/insertar_pro.php" method="POST" onsubmit="return validar();">
+                                    <form action="funciones/insertar_pro.php" method="POST" onsubmit="return validarPro();">
                                         <div class="position-relative form-group">
                                             <label for="nombre" class="">Nombre</label><p id="mensaje">
                                             <input name="nombre" id="nombre" type="text" class="form-control">
                                         </div>
                                         <div class="position-relative form-group">
-                                            <label for="domicilio" class="">precio</label>
+                                            <label for="domicilio" class="">Precio</label>
                                             <input name="precio" id="precio" type="tex" class="form-control">
                                         </div>
                                         <div class="position-relative form-group">
-                                            <label for="codigpostal" class="">Descripcion</label>
+                                            <label for="descripcion" class="">Descripcion</label>
                                             <textarea name="descripcion" id="descripcion" type="text" class="form-control"></textarea>
                                         </div>
 
@@ -190,10 +190,6 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                                         <div class="position-relative form-group">
                                             <label for="telefono" class="">Telefono</label>
                                             <input name="telefono" id="telefono" type="text" class="form-control">
-                                        </div>
-                                        <div class="position-relative form-group">
-                                            <label for="email" class="">Horario</label>
-                                            <input name="horario" id="horario" type="date" class="form-control">
                                         </div>
                                         <div class="position-relative form-group">
                                         <label for="id_categoria" class="">Categoria</label>
@@ -242,7 +238,7 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
             </div>
         </div>
     </div>
-    <script src="funciones/validar.js"></script>
+    <script src="funciones/validarPro.js"></script>
     <script type="text/javascript" src="./assets/scripts/main.js"></script>
     <script>
     tinymce.init({
