@@ -185,13 +185,18 @@ FROM productos p1 INNER JOIN categorias_prod p2 on p1.id_cat_prod = p2.id_cat_pr
                                             </div>
                                             <div><img class="img_principal" src="img/mabe.jpg" alt=""></div>
                                             <div class="descripcion">
+                                            
                                                 <h1>$<?php echo $row["precio_prod"] ?>MX</h1>
                                                 <h3><?php echo $row["nombre_prod"] ?></h3>
+                                                <h6>Descripcion:</h6>
                                                 <p><?php echo $row["des_prod"] ?></p>
+                                                <h6>Proveedor:</h6>
                                                 <p><?php echo $row["nombre_pro"] ?></p>
+                                                <h6>Telefono del Proveedor:</h6>
                                                 <p><?php echo $row["tel_prod"] ?></p>
+                                                <h6>Categoria:</h6>
                                                 <p><?php echo $row["nombre_cat"] ?></p>
-                                                <p><?php echo $row["nombre_cat"] ?></p>
+                                                
                                             </div>
                                             <div>
                                             
