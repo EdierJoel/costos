@@ -11,6 +11,8 @@
 .img_mini{
     width: 100px;
     height: 100px;
+
+    margin-bottom: 20px;
     display: inline-block;
 }
 
