@@ -220,7 +220,7 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                                             </select>
                                         </div>
                                         <div class="position-relative form-group">
-                                            <label for="email" class="">Imagen 1</label>
+                                        <label for="email" class="">Imagen 1</label>
                                             <input name="img1" id="img1" type="text" class="form-control">
                                         </div>
                                         <div class="position-relative form-group">
