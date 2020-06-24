@@ -1,7 +1,7 @@
 <?php
 include("funciones/db.php");
 
-$productos = "SELECT p1.id_prod, p1.nombre_prod, p1.precio_prod, p1.des_prod, p1.fech_prod, p1.tel_prod, p1.horario, p2.nombre_cat, p3.nombre_pro, p1.img_prod, p1.img_prod_2, p1.img_prod_3
+$productos = "SELECT p1.id_prod, p1.nombre_prod, p1.precio_prod, p1.des_prod, p1.fech_prod, p1.tel_prod, p2.nombre_cat, p3.nombre_pro, p1.img_prod, p1.img_prod_2, p1.img_prod_3
 FROM productos p1 INNER JOIN categorias_prod p2 on p1.id_cat_prod = p2.id_cat_prod INNER JOIN provedor p3 ON p1.id_provedor = p3.id_provedor";
 ?>
 
