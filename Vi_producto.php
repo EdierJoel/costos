@@ -140,7 +140,7 @@ FROM productos p1 INNER JOIN categorias_prod p2 on p1.id_cat_prod = p2.id_cat_pr
                             <li>
                                 <a href="Vi_producto.php">
                                     <i class="metismenu-icon pe-7s-albums"></i>
-                                    catalogo
+                                    Catálogo
                                 </a>
                             </li>
                         </ul>
@@ -163,7 +163,7 @@ FROM productos p1 INNER JOIN categorias_prod p2 on p1.id_cat_prod = p2.id_cat_pr
                             </div>
                             <div class="page-title-actions">
                                 <div class="d-inline-block dropdown">
-                                    <a href="insertar-categoria.php" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-outline-success">Nuevo Producto</a>
+                                    <a href="Iproducto.php" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-outline-success">Nuevo Producto</a>
                                 </div>
                             </div>
                         </div>
@@ -188,7 +188,7 @@ FROM productos p1 INNER JOIN categorias_prod p2 on p1.id_cat_prod = p2.id_cat_pr
                                             
                                                 <h1>$<?php echo $row["precio_prod"] ?>MX</h1>
                                                 <h3><?php echo $row["nombre_prod"] ?></h3>
-                                                <h6>Descripcion:</h6>
+                                                <h6>Descripción:</h6>
                                                 <p><?php echo $row["des_prod"] ?></p>
                                                 <h6>Proveedor:</h6>
                                                 <p><?php echo $row["nombre_pro"] ?></p>

@@ -135,6 +135,12 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                                     Productos
                                 </a>
                             </li>
+                            <li>
+                                <a href="Tproductos.php">
+                                    <i class="metismenu-icon pe-7s-albums"></i>
+                                    Catálogo
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>

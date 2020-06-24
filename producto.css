@@ -26,5 +26,14 @@
 }
 
 .descripcion{
+    width: 300px;
+    background: rgba(0, 0, 0, .1);
+    border-radius: 10px;
     font-weight: 300;
+    
+    text-align: center;
+}
+
+ h3, h6{
+    font-weight: 500;
 }
