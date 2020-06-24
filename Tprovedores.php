@@ -144,6 +144,12 @@
                                     Productos
                                 </a>
                             </li>
+                            <li>
+                                <a href="Vi_producto.php">
+                                    <i class="metismenu-icon pe-7s-albums"></i>
+                                    catalogo
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
