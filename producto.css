@@ -1,0 +1,28 @@
+.galleria{
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: space-evenly;
+    align-items: center;
+
+    margin: 25px 0;
+}
+
+.img_mini{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+
+.img_principal{
+    width: 300px;
+    height: 300px;
+}
+
+.mini{
+    display: inline-block;
+}
+
+.descripcion{
+    font-weight: 300;
+}
