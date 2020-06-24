@@ -20,6 +20,6 @@
              id_prov='$prov', img_prod_2 = '$img2', img_prod_3 = '$img3' WHERE id_prod = '$id'";
             $resul=mysqli_query($conectar, $consulta);
         
-            header('location: ../Tproductos.php');
+            header('location: ../Vi_producto.php');
     
     ?>

@@ -122,6 +122,12 @@
                                     Productos
                                 </a>
                             </li>
+                            <li>
+                                <a href="Tproductos.php">
+                                    <i class="metismenu-icon pe-7s-albums"></i>
+                                    Catálogo
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
