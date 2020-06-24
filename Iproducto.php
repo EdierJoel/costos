@@ -214,16 +214,16 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                                             </select>
                                         </div>
                                         <div class="position-relative form-group">
-                                            <label for="email" class="">Imagen 1</label>
-                                            <input type="file" id="fotoInsert" class="form-control">
+                                        <label for="email" class="">Imagen 1</label>
+                                            <input name="img1" id="img1" type="text" class="form-control">
                                         </div>
                                         <div class="position-relative form-group">
                                             <label for="email" class="">Imagen 2</label>
-                                            <input type="file" id="fotoInsert" class="form-control">
+                                            <input name="img2" id="img2" type="text" class="form-control">
                                         </div>
                                         <div class="position-relative form-group">
                                             <label for="email" class="">Imagen 3</label>
-                                            <input type="file" id="fotoInsert" class="form-control">
+                                            <input name="img3" id="img3" type="text" class="form-control">
                                         </div>
                                         <button type="submit" id="btn" aria-haspopup="true"
                                             aria-expanded="false" class="btn-shadow btn btn-success">
