@@ -204,10 +204,7 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                                                                 <label for="provedores" class="">Telefono</label>
                                                                 <input name="telefono" id="telefono" type="tel" class="form-control" value="<?php echo $row["tel_prod"] ?>"required>
                                                             </div>
-                                                            <div class="position-relative form-group">
-                                                                <label for="provedores" class="">Horario</label>
-                                                                <input name="horario" id="horario" type="date" class="form-control" value="<?php echo $row["horario"] ?>"required>
-                                                            </div>
+                                                            
                                                             <div class="position-relative form-group">
                                                             <label for="pais" class="">Categoria</label>
                                                                 <select name="id_categoria" id="cat" type="text" class="form-control">
