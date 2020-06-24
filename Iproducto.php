@@ -192,10 +192,6 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                                             <input name="telefono" id="telefono" type="text" class="form-control">
                                         </div>
                                         <div class="position-relative form-group">
-                                            <label for="email" class="">Horario</label>
-                                            <input name="horario" id="horario" type="date" class="form-control">
-                                        </div>
-                                        <div class="position-relative form-group">
                                         <label for="id_categoria" class="">Categoria</label>
                                             <select name="id_categoria" id="id_cat" type="text" class="form-control">
                                             <option value="0">Seleccione una categoria</option>
