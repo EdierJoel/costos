@@ -20,7 +20,7 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
     <meta name="description" content="Tables are the backbone of almost all web applications.">
     <meta name="msapplication-tap-highlight" content="no">
     <link href="./main.css" rel="stylesheet">
-    <script src="https://cdn.tiny.cloud/1/rtfwyg2zkhryhq9ksxwnl01v5labnduoykspk5b3j0ui7e5b/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/jno6r4i4lpdnzqi1dqhbwm9remj4mk9tllzmc5diub23pw0o/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
     tinymce.init({
       selector: '#descripcion'
@@ -134,6 +134,12 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                                     Productos
                                 </a>
                             </li>
+                            <li>
+                                <a href="Vi_producto.php">
+                                    <i class="metismenu-icon pe-7s-albums"></i>
+                                    catalogo
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -148,7 +154,7 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                                     </i>
                                 </div>
                                 <div>Módulo de Costos
-                                    <div class="page-title-subheading">Editar Proveedores
+                                    <div class="page-title-subheading">Editar Productos
                                     </div>
                                 </div>
                             </div>
@@ -163,7 +169,7 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                         <div class="col-lg-10">
                             <div class="main-card mb-3 card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Categorias</h5>
+                                    <h5 class="card-title">Productos</h5>
                                     <div class="table-responsive">
                                         <table class="mb-0 table">
                                             <tbody>
@@ -172,9 +178,9 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
 
                                                     while ($row = mysqli_fetch_assoc($res)) { ?>
 
-                                                        <form action="funciones/editar_pro.php" method="POST" onsubmit="return validar();">
+                                                        <form id="editform" enctype="multipart/form-data" onsubmit="return validar();">
                                                         <div class="position-relative form-group">
-                                                                <input name="id" type="hidden" class="form-control" value="<?php echo $row["id_prod"] ?>">
+                                                                <input name="id" type="hidden" class="form-control" value="<?php echo $row["id_prod"]; ?>">
                                                             </div>
                                                             <div class="position-relative form-group">
                                                                 <label for="provedores" class="">Nombre</label>
@@ -198,10 +204,7 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                                                                 <label for="provedores" class="">Telefono</label>
                                                                 <input name="telefono" id="telefono" type="tel" class="form-control" value="<?php echo $row["tel_prod"] ?>"required>
                                                             </div>
-                                                            <div class="position-relative form-group">
-                                                                <label for="provedores" class="">Horario</label>
-                                                                <input name="horario" id="horario" type="date" class="form-control" value="<?php echo $row["horario"] ?>"required>
-                                                            </div>
+                                                            
                                                             <div class="position-relative form-group">
                                                             <label for="pais" class="">Categoria</label>
                                                                 <select name="id_categoria" id="cat" type="text" class="form-control">
@@ -225,17 +228,17 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                                                             </div>
                                                             <div class="position-relative form-group">
                                                                 <label for="provedores" class="">Imagen 1</label>
-                                                                <input name="img1" id="img1" type="text" class="form-control" value="<?php echo $row["img_prod"] ?>"required>
+                                                                <input name="img1" id="img1" type="file" class="form-control" value="<?php echo $row["img_prod"] ?>"required>
                                                             </div>
                                                             <div class="position-relative form-group">
                                                                 <label for="provedores" class="">Imagen 2</label>
-                                                                <input name="img2" id="img2" type="text" class="form-control" value="<?php echo $row["img_prod_2"] ?>"required>
+                                                                <input name="img2" id="img2" type="file" class="form-control" value="<?php echo $row["img_prod_2"] ?>"required>
                                                             </div>
                                                             <div class="position-relative form-group">
                                                                 <label for="provedores" class="">Imagen 3</label>
-                                                                <input name="img3" id="img3" type="text" class="form-control" value="<?php echo $row["img_prod_3"] ?>"required>
+                                                                <input name="img3" id="img3" type="file" class="form-control" value="<?php echo $row["img_prod_3"] ?>"required>
                                                             </div>
-                                                            <button type="submit" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-success">
+                                                            <button type="button" id="btncatalogo" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-success">
                                                                 Guardar Cambios
                                                             </button>
                                                     </form>
@@ -255,6 +258,7 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
     </div>
     <script src="funciones/validar.js"></script>
     <script type="text/javascript" src="./assets/scripts/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script>
     tinymce.init({
       selector: 'textarea',
@@ -265,6 +269,7 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
       tinycomments_author: 'Author name',
     });
   </script>
+  <script src="./imgcatalogo.js"></script>
 </body>
 
 </html>

@@ -17,7 +17,7 @@ $rep = "SELECT * FROM reglamento WHERE id = '$id'";
     <meta name="description" content="Tables are the backbone of almost all web applications.">
     <meta name="msapplication-tap-highlight" content="no">
     <link href="./main.css" rel="stylesheet">
-    <script src="https://cdn.tiny.cloud/1/rtfwyg2zkhryhq9ksxwnl01v5labnduoykspk5b3j0ui7e5b/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/jno6r4i4lpdnzqi1dqhbwm9remj4mk9tllzmc5diub23pw0o/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
     tinymce.init({
       selector: '#descripcion'
@@ -128,6 +128,12 @@ $rep = "SELECT * FROM reglamento WHERE id = '$id'";
                                 <a href="Tproductos.php">
                                     <i class="metismenu-icon pe-7s-albums"></i>
                                     Productos
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Vi_producto.php">
+                                    <i class="metismenu-icon pe-7s-albums"></i>
+                                    catalogo
                                 </a>
                             </li>
                         </ul>

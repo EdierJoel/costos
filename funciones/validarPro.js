@@ -1,12 +1,11 @@
 function validarPro(){
-    var nombre, precio, descripcion, fechaP, telefono, horario, id_cat, 
+    var nombre, precio, descripcion, fechaP, telefono, id_cat, 
     id_pro, img1, img2, img3 ;
     nombre = document.getElementById("nombre").value;
     precio = document.getElementById("precio").value;
     descripcion = document.getElementById("descripcion").value;
     fechaP = document.getElementById("fechaP").value;
     telefono = document.getElementById("telefono").value;
-    horario = document.getElementById("horario").value;
     id_cat = document.getElementById("id_cat").value;
     id_pro = document.getElementById("id_pro").value;
     img1 = document.getElementById("img1").value;
@@ -23,7 +22,7 @@ function validarPro(){
         return false;
     }
     else if( descripcion === "" ){
-        alert("La descripción es necesaria o debe de cumplir minimo con 60 caracteres");
+        alert("La descripción es necesaria");
         return false;
     }
     else if(fechaP === ""){
@@ -34,10 +33,6 @@ function validarPro(){
         alert("El telefono no cumple con los campos requeridos");
         return false;
     }     
-    else if(horario === ""){
-        alert("El horario es requerido");
-        return false;
-    }
     else if(id_cat === ""){
         alert("La categoria es requerida");
         return false;

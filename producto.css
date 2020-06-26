@@ -2,23 +2,27 @@
     display: flex;
     flex-wrap: wrap;
 
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
 
     margin: 25px 0;
 }
 
 .img_mini{
-    width: 100px;
-    height: 100px;
+    width: 170px;
+    height: auto;
 
-    margin-bottom: 20px;
+    border-radius: 7px;
+    margin-top: 25px;
+    margin-bottom: 25px;
     display: inline-block;
 }
 
 .img_principal{
     width: 300px;
-    height: 300px;
+    height: auto;
+
+    border-radius: 7px;
 }
 
 .mini{
@@ -26,5 +30,20 @@
 }
 
 .descripcion{
+    width: 300px;
+    background: rgba(0, 0, 0, .1);
+    border-radius: 10px;
     font-weight: 300;
+
+    transition: .3s ease-in;
+    text-align: center;
+}
+
+.descripcion:hover{
+    background: #000;
+    color: #fff;
+}
+
+ h3, h6{
+    font-weight: 500;
 }

@@ -1,7 +1,7 @@
 <?php
 include("funciones/db.php");
 $id = $_GET["id"];
-$cat = "SELECT * FROM categoria WHERE id = '$id'";
+$cat = "SELECT * FROM categoria WHERE id_cat_provedor = '$id'";
 ?>
 
 <!doctype html>
@@ -124,6 +124,12 @@ $cat = "SELECT * FROM categoria WHERE id = '$id'";
                                     Productos
                                 </a>
                             </li>
+                            <li>
+                                <a href="Vi_producto.php">
+                                    <i class="metismenu-icon pe-7s-albums"></i>
+                                    catalogo
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -164,7 +170,7 @@ $cat = "SELECT * FROM categoria WHERE id = '$id'";
 
                                                         <form action="funciones/editar.php" method="POST"  onsubmit="return validarCat();">
                                                         <div class="position-relative form-group">
-                                                                <input name="id" id="id" type="hidden" class="form-control" value="<?php echo $row["id"] ?>">
+                                                                <input name="id" id="id" type="hidden" class="form-control" value="<?php echo $row["id_cat_provedor"] ?>">
                                                             </div>
                                                             <div class="position-relative form-group">
                                                                 <label for="categoria" class="">Nombre de Categoria</label>

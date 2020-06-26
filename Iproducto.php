@@ -19,8 +19,8 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
     <meta name="description" content="Tables are the backbone of almost all web applications.">
     <meta name="msapplication-tap-highlight" content="no">
     <link href="./main.css" rel="stylesheet">
-    <script src="https://cdn.tiny.cloud/1/rtfwyg2zkhryhq9ksxwnl01v5labnduoykspk5b3j0ui7e5b/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script>
+    <script src="https://cdn.tiny.cloud/1/jno6r4i4lpdnzqi1dqhbwm9remj4mk9tllzmc5diub23pw0o/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+     <script>
     tinymce.init({
       selector: '#descripcion'
     });
@@ -135,6 +135,12 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                                     Productos
                                 </a>
                             </li>
+                            <li>
+                                <a href="Tproductos.php">
+                                    <i class="metismenu-icon pe-7s-albums"></i>
+                                    Catálogo
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -192,10 +198,6 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                                             <input name="telefono" id="telefono" type="text" class="form-control">
                                         </div>
                                         <div class="position-relative form-group">
-                                            <label for="email" class="">Horario</label>
-                                            <input name="horario" id="horario" type="date" class="form-control">
-                                        </div>
-                                        <div class="position-relative form-group">
                                         <label for="id_categoria" class="">Categoria</label>
                                             <select name="id_categoria" id="id_cat" type="text" class="form-control">
                                             <option value="0">Seleccione una categoria</option>
@@ -218,21 +220,22 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                                             </select>
                                         </div>
                                         <div class="position-relative form-group">
-                                            <label for="email" class="">Imagen 1</label>
-                                            <input name="img1" id="img1" type="text" class="form-control">
+                                        <label for="email" class="">Imagen 1</label>
+                                        <input name="img1" id="img1" type="file" class="form-control" required>
                                         </div>
                                         <div class="position-relative form-group">
                                             <label for="email" class="">Imagen 2</label>
-                                            <input name="img2" id="img2" type="text" class="form-control">
+                                            <input name="img2" id="img2" type="file" class="form-control" required>
                                         </div>
                                         <div class="position-relative form-group">
                                             <label for="email" class="">Imagen 3</label>
-                                            <input name="img3" id="img3" type="text" class="form-control">
+                                            <input name="img3" id="img3" type="file" class="form-control" required>
                                         </div>
-                                        <button type="submit" id="btn" aria-haspopup="true"
+                                        <button type="submit" id="btncatalogo" aria-haspopup="true"
                                             aria-expanded="false" class="btn-shadow btn btn-success">
                                             Agregar Producto
                                         </button>
+                                        
                                     </form>
                                 </div>
                             </div>
@@ -244,6 +247,8 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
     </div>
     <script src="funciones/validarPro.js"></script>
     <script type="text/javascript" src="./assets/scripts/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
     <script>
     tinymce.init({
       selector: 'textarea',
@@ -254,6 +259,8 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
       tinycomments_author: 'Author name',
     });
   </script>
+    <script src="imgcatalogo.js"></script>
+
 </body>
 
 </html>

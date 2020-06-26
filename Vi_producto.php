@@ -1,5 +1,8 @@
 <?php
 include("funciones/db.php");
+
+$productos = "SELECT p1.id_prod, p1.nombre_prod, p1.precio_prod, p1.des_prod, p1.fech_prod, p1.tel_prod, p2.nombre_cat, p3.nombre_pro, p1.img_prod, p1.img_prod_2, p1.img_prod_3
+FROM productos p1 INNER JOIN categorias_prod p2 on p1.id_cat_prod = p2.id_cat_prod INNER JOIN provedor p3 ON p1.id_provedor = p3.id_provedor";
 ?>
 
 <!doctype html>
@@ -137,7 +140,7 @@ include("funciones/db.php");
                             <li>
                                 <a href="Vi_producto.php">
                                     <i class="metismenu-icon pe-7s-albums"></i>
-                                    catalogo
+                                    Catálogo
                                 </a>
                             </li>
                         </ul>
@@ -160,69 +163,56 @@ include("funciones/db.php");
                             </div>
                             <div class="page-title-actions">
                                 <div class="d-inline-block dropdown">
-                                    <a href="insertar-categoria.php" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-outline-success">Nuevo Producto</a>
+                                    <a href="Iproducto.php" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-outline-success">Nuevo Producto</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="container">
-                        <div class="col-lg-12">
-                            <div class="main-card mb-3 card">
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <div class="galleria">
-                                            <div class="mini">
-                                            <div><img class="img_mini" src="img/mabe.jpg" alt=""></div>
-                                            <div><img class="img_mini" src="img/mabe.jpg" alt=""></div>
-                                            </div>
-                                            <div><img class="img_principal" src="img/mabe.jpg" alt=""></div>
-                                            <div class="descripcion">
-                                                <h1>$400 MX</h1>
-                                                <h3>Estufa MB</h3>
-                                                <p>Lorem ipsum dolor sit amet.</p>
-                                                <p>Lorem ipsum dolor sit amet.</p>
-                                            </div>
-                                            <div>
-                                                <a href="tabla-editar.php?id=<?php echo $row["id"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-info">Editar
-                                                </a>
-                                                <a href="funciones/eliminar.php?id=<?php echo $row["id"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-danger" onclick="return confirmar()">Eliminar
-                                                </a>
+
+                    <?php $resultado = mysqli_query($conectar, $productos);
+
+
+                    while ($row = mysqli_fetch_assoc($resultado)) { ?>
+                        <div class="container">
+                            <div class="col-lg-12">
+                                <div class="main-card mb-3 card">
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <div class="galleria">
+                                                <div class="mini">
+                                                    <div>
+                                                        <?php echo "<img class='img_mini' src='" . $row['img_prod_2'] . "'>"; ?>
+                                                    </div>
+                                                    <div>
+                                                        <?php echo "<img class='img_mini' src='" . $row['img_prod_3'] . "'>"; ?>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <?php echo "<img class='img_principal' src='" . $row['img_prod'] . "'>"; ?>
+                                                </div>
+                                                <div class="descripcion">
+
+                                                    <h1>$<?php echo $row["precio_prod"] ?>MX</h1>
+                                                    <h3><?php echo $row["nombre_prod"] ?></h3>
+                                                    <h6>Descripción:</h6>
+                                                    <p><?php echo $row["des_prod"] ?></p>
+                                                    <h6>Proveedor:</h6>
+                                                    <p><?php echo $row["nombre_pro"] ?></p>
+                                                    <h6>Telefono del Proveedor:</h6>
+                                                    <p><?php echo $row["tel_prod"] ?></p>
+                                                    <h6>Categoria:</h6>
+                                                    <p><?php echo $row["nombre_cat"] ?></p>
+
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="container">
-                        <div class="col-lg-12">
-                            <div class="main-card mb-3 card">
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <div class="galleria">
-                                            <div class="mini">
-                                            <div><img class="img_mini" src="img/mabe.jpg" alt=""></div>
-                                            <div><img class="img_mini" src="img/mabe.jpg" alt=""></div>
-                                            </div>
-                                            <div><img class="img_principal" src="img/mabe.jpg" alt=""></div>
-                                            <div class="descripcion">
-                                                <h1>$400 MX</h1>
-                                                <h3>Estufa MB</h3>
-                                                <p>Lorem ipsum dolor sit amet.</p>
-                                                <p>Lorem ipsum dolor sit amet.</p>
-                                            </div>
-                                            <div>
-                                                <a href="tabla-editar.php?id=<?php echo $row["id"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-info">Editar
-                                                </a>
-                                                <a href="funciones/eliminar.php?id=<?php echo $row["id"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-danger" onclick="return confirmar()">Eliminar
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                    <?php }
+                    mysqli_free_result($resultado); ?>
                 </div>
             </div>
         </div>
