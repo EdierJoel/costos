@@ -161,7 +161,7 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                             </div>
                             <div class="page-title-actions">
                                 <div class="d-inline-block dropdown">
-                                    <a href="Tprovedores.php"aria-haspopup="true"
+                                    <a href="Tproductos.php"aria-haspopup="true"
                                     aria-expanded="false" class="btn-shadow btn btn-danger">Cancelar</a>
                                 </div>
                             </div>

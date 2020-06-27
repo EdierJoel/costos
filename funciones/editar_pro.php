@@ -10,14 +10,17 @@
     $telefono = $_POST['telefono'];
     $cat = $_POST['id_categoria'];
     $prov = $_POST['id_provedor'];
-    $img1 = $_POST['img_prod'];
-    $img2 = $_POST['img_prod_2'];
-    $img3 = $_POST['img_prod_3'];
+    $Nimg1 = $_POST['img1'];
+    $imgdir1 = "img_catalogo/".$Nimg1;
+    $Nimg2 = $_POST['img2'];
+    $imgdir2 = "img_catalogo/".$Nimg2;
+    $Nimg3 = $_POST['img3'];
+    $imgdir3 = "img_catalogo/".$Nimg3;
 
     
             $consulta="UPDATE productos SET nombre_prod ='$nombre', precio_prod='$precio', des_prod = '$des',
-             fech_prod = '$fechap', img_prod ='$img1', tel_prod ='$telefono', id_cat_prod ='$cat', 
-             id_prov='$prov', img_prod_2 = '$img2', img_prod_3 = '$img3' WHERE id_prod = '$id'";
+             fech_prod = '$fechap', img_prod ='$imgdir1', tel_prod ='$telefono', id_cat_prod ='$cat', 
+             id_prov='$prov', img_prod_2 = '$imgdir2', img_prod_3 = '$imgdir3' WHERE id_prod = '$id'";
             $resul=mysqli_query($conectar, $consulta);
         
             header('location: ../Vi_producto.php');
