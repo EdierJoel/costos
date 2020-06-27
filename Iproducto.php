@@ -221,17 +221,21 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                                         </div>
                                         <div class="position-relative form-group">
                                         <label for="email" class="">Imagen 1</label>
-                                        <input name="img1" id="img1" type="file" class="form-control" value="<?php echo $row["img_prod"] ?>"required>
+
+                                        <input name="img1" id="img1" type="file" class="form-control" required>
                                         </div>
                                         <div class="position-relative form-group">
                                             <label for="email" class="">Imagen 2</label>
-                                            <input name="img2" id="img2" type="file" class="form-control" value="<?php echo $row["img_prod_2"] ?>"required>
+                                            <input name="img2" id="img2" type="file" class="form-control" required>
                                         </div>
                                         <div class="position-relative form-group">
                                             <label for="email" class="">Imagen 3</label>
-                                            <input name="img3" id="img3" type="file" class="form-control" value="<?php echo $row["img_prod_3"] ?>"required>
+                                            <input name="img3" id="img3" type="file" class="form-control" required>
+
+                  
+
                                         </div>
-                                        <button type="submit" id="btn" aria-haspopup="true"
+                                        <button type="submit" id="btncatalogo" aria-haspopup="true"
                                             aria-expanded="false" class="btn-shadow btn btn-success">
                                             Agregar Producto
                                         </button>
@@ -259,7 +263,9 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
       tinycomments_author: 'Author name',
     });
   </script>
-    <script src="./imgcatalogo.js"></script>
+
+    <script src="imgcatalogo.js"></script>
+
 
 </body>
 

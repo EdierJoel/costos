@@ -22,7 +22,7 @@ function validarPro(){
         return false;
     }
     else if( descripcion === "" ){
-        alert("La descripción es necesaria o debe de cumplir minimo con 60 caracteres");
+        alert("La descripción es necesaria");
         return false;
     }
     else if(fechaP === ""){
