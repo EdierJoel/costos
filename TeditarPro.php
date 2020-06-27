@@ -1,7 +1,7 @@
 <?php
 include("funciones/db.php");
 $id = $_GET["id"];
-$producto = "SELECT *FROM productos WHERE id_prod = '$id'";
+$producto = "SELECT * FROM productos WHERE id_prod = '$id'";
 
 $categoria ="SELECT * FROM categorias_prod";
 $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
@@ -178,7 +178,7 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
 
                                                     while ($row = mysqli_fetch_assoc($res)) { ?>
 
-                                                        <form id="editform" enctype="multipart/form-data" onsubmit="return validar();">
+                                                        <form action="funciones/editar_pro.php" method="POST" id="editform" onsubmit="return validarPro();">
                                                         <div class="position-relative form-group">
                                                                 <input name="id" type="hidden" class="form-control" value="<?php echo $row["id_prod"]; ?>">
                                                             </div>
