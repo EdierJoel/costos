@@ -161,10 +161,12 @@ FROM productos p1 INNER JOIN categorias_prod p2 on p1.id_cat_prod = p2.id_cat_pr
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
 
                     <?php $resultado = mysqli_query($conectar, $productos);
+
 
 
                     while ($row = mysqli_fetch_assoc($resultado)) { ?>
@@ -199,6 +201,8 @@ FROM productos p1 INNER JOIN categorias_prod p2 on p1.id_cat_prod = p2.id_cat_pr
                                                     <p><?php echo $row["nombre_cat"] ?></p>
 
                                                 </div>
+
+
                                             </div>
                                         </div>
                                     </div>
@@ -206,8 +210,10 @@ FROM productos p1 INNER JOIN categorias_prod p2 on p1.id_cat_prod = p2.id_cat_pr
                             </div>
                         </div>
 
+
                     <?php }
                     mysqli_free_result($resultado); ?>
+
                 </div>
             </div>
         </div>
