@@ -6,7 +6,7 @@
     $dom = $_POST['domicilio'];
     $cp = $_POST['codigopostal'];
     $loca = $_POST['localidad'];
-    $estado = $_POST['estado'];
+    $estadoe = $_POST['estado'];
     $pais = $_POST['pais'];
     $tel = $_POST['telefono'];
     $email = $_POST['email'];

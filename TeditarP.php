@@ -1,9 +1,8 @@
 <?php
 include("funciones/db.php");
 $id = $_GET["id"];
-$prov = "SELECT * FROM provedor WHERE id_provedor = '$id'";
-$consulta ="SELECT * FROM categoria";
-$cpais ="SELECT * FROM paises";
+$prov = "SELECT p1.id_provedor, p1.nombre_pro, p1.domicilio, p1.cp, p1.localidad, p1.id_estado, p3.estadonombre, p1.id_pais, p4.paisnombre, p1.telefono, p1.email, p2.nombre 
+    FROM provedor p1 INNER JOIN categoria p2 on p1.id_categoria = p2.id_cat_provedor INNER JOIN estado p3 on p1.id_estado = p3.id_estado INNER JOIN paises p4 on p1.id_pais = p4.id_pais WHERE p1.id_provedor ='$id'";
 ?>
 
 <!doctype html>
@@ -191,7 +190,22 @@ $cpais ="SELECT * FROM paises";
                                                                 <input name="codigopostal" id="cp" type="text" class="form-control" value="<?php echo $row["cp"] ?>" required>
                                                             </div>
                                                             
-                                                            
+                                                            <div class="position-relative form-group">
+                                                            <label for="pais" class="">Pais</label>
+                                                                <select name="pais" id="pais" type="text" class="form-control">
+                                                                <option value="<?php echo $row["id_pais"];?>"><?php echo $row["paisnombre"];?></option>
+                                                                <?php
+                                                                $cpais ="SELECT * FROM paises";
+                                                                $resu = mysqli_query($conectar, $cpais); 
+                                                                while ($filapais = mysqli_fetch_assoc($resu)) { ?>
+                                                                <option value="<?php echo $filapais["id_pais"];?>"><?php echo $filapais["paisnombre"];?></option>
+                                                                <?php } mysqli_free_result($resu); ?>
+                                                                </select>
+                                                            </div>
+
+                                        
+                                                            <div class="position-relative form-group" id="listae">
+                                                            </div>
                                                             
                                                             <div class="position-relative form-group">
                                                                 <label for="provedores" class="">Ciudad</label>
@@ -205,29 +219,16 @@ $cpais ="SELECT * FROM paises";
                                                                 <label for="provedores" class="">Email</label>
                                                                 <input name="email" id="email" type="text" class="form-control" value="<?php echo $row["email"] ?>"required>
                                                             </div>
-                                                            <div class="position-relative form-group">
-                                                            <label for="pais" class="">Pais</label>
-                                                                <select name="pais" id="pais" type="text" class="form-control">
-                                                                <option value="<?php echo $row["id_pais"];?>"><?php echo $row["paisnombre"];?></option>
-                                                                <?php $resu = mysqli_query($conectar, $cpais); 
-                                                                while ($row = mysqli_fetch_assoc($resu)) { ?>
-                                                                <option value="<?php echo $row["id_pais"];?>"><?php echo $row["paisnombre"];?></option>
-                                                                <?php } mysqli_free_result($resu); ?>
-                                                                </select>
-                                                                </div>
-
-                                        
-                                                            <div class="position-relative form-group" id="lista2" >
-
-                                                            </div>
-                                                            
+                                                                                                                        
                                                             <div class="position-relative form-group">
                                                                 <label for="provedores" class="">Categoria</label>
                                                                 <select name="id_categoria" id="cat" type="text" class="form-control">
-                                                                <?php $R = mysqli_query($conectar, $consulta); 
-                                                                     while ($row = mysqli_fetch_assoc($R)) { ?>
-                                                                        <option value="<?php echo $row["id_cat_provedor"];?>"><?php echo $row["nombre"]?></option>
-                                                                    <?php } mysqli_free_result($R); ?>
+                                                                <?php
+                                                                    $consulta ="SELECT * FROM categoria";
+                                                                    $Resulcat = mysqli_query($conectar, $consulta); 
+                                                                    while ($cat = mysqli_fetch_assoc($Resulcat)) { ?>
+                                                                        <option value="<?php echo $cat["id_cat_provedor"];?>"><?php echo $cat["nombre"]?></option>
+                                                                    <?php } mysqli_free_result($Resulcat); ?>
                                                                  </select>
                                                             </div>
                                                             <button type="submit" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-success">
@@ -235,8 +236,7 @@ $cpais ="SELECT * FROM paises";
                                                             </button>
                                                     </form>
                                                 </tr>
-                                            <?php }
-                                                    mysqli_free_result($resultado); ?>
+                                            <?php }mysqli_free_result($resultado); ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -250,27 +250,28 @@ $cpais ="SELECT * FROM paises";
     </div>
     <script src="funciones/validar.js"></script>
     <script type="text/javascript" src="./assets/scripts/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 </body>
 
 </html>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$('#pais').val(1);
-		recargarLista();
+		//$('#pais').val(1);
+		recargarListae();
 
 		$('#pais').change(function(){
-			recargarLista();
+			recargarListae();
 		});
 	})
 </script>
 <script type="text/javascript">
-	function recargarLista(){
+	function recargarListae(){
 		$.ajax({
 			type:"POST",
-			url:"funciones/datos.php",
-			data:"estado=" + $('#pais').val(),
-			success:function(r){
-				$('#lista2').html(r);
+			url:"funciones/datosep.php",
+			data:"pais=" + $('#pais').val(),
+			success:function(e){
+				$('#listae').html(e);
 			}
 		});
 	}

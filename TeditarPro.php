@@ -1,10 +1,8 @@
 <?php
 include("funciones/db.php");
-$id = $_GET["id"];
-$producto = "SELECT * FROM productos WHERE id_prod = '$id'";
-
-$categoria ="SELECT * FROM categorias_prod";
-$provedor = "SELECT id_provedor, nombre_pro FROM provedor";
+$idp = $_GET["id_P"];
+$producto = "SELECT p1.id_prod, p1.nombre_prod, p1.precio_prod, p1.des_prod, p1.fech_prod, p1.tel_prod, p2.nombre_cat, p3.nombre_pro, p1.img_prod, p1.img_prod_2, p1.img_prod_3
+FROM productos p1 INNER JOIN categorias_prod p2 on p1.id_cat_prod = p2.id_cat_prod INNER JOIN provedor p3 ON p1.id_provedor = p3.id_provedor WHERE id_prod = '$idp'";
 ?>
 
 <!doctype html>
@@ -174,9 +172,9 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                                         <table class="mb-0 table">
                                             <tbody>
                                                 <tr>
-                                                    <?php $res = mysqli_query($conectar, $producto);
+                                                    <?php $resP = mysqli_query($conectar, $producto);
 
-                                                    while ($row = mysqli_fetch_assoc($res)) { ?>
+                                                    while ($row = mysqli_fetch_assoc($resP)) { ?>
 
                                                         <form action="funciones/editar_pro.php" method="POST" id="editform" onsubmit="return validarPro();">
                                                         <div class="position-relative form-group">
@@ -206,37 +204,41 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                                                             </div>
                                                             
                                                             <div class="position-relative form-group">
-                                                            <label for="pais" class="">Categoria</label>
+                                                            <label for="categoria" class="">Categoria</label>
                                                                 <select name="id_categoria" id="cat" type="text" class="form-control">
-                                                                <option value="0">Seleccione una categoria</option>
-                                                                <?php $resu = mysqli_query($conectar, $categoria); 
-                                                                while ($row = mysqli_fetch_assoc($resu)) { ?>
-                                                                <option value="<?php echo $row["id_cat_prod"];?>"><?php echo $row["nombre_cat"];?></option>
-                                                                <?php } mysqli_free_result($resu); ?>
-                                                                </select>
+                                                                <option value="0"><?php echo $row["nombre_cat"];?></option>
+                                                                <?php 
+                                                                $categoria ="SELECT * FROM categorias_prod";
+                                                                $resC = mysqli_query($conectar, $categoria); 
+                                                                while ($rowc = mysqli_fetch_assoc($resC)) { ?>
+                                                                <option value="<?php echo $rowc["id_cat_prod"];?>"><?php echo $rowc["nombre_cat"];?></option>
+                                                                <?php } mysqli_free_result($resC); ?>
+                                                                </select>  
                                                             </div>
-
+                                                            
                                                             <div class="position-relative form-group">
-                                                            <label for="id_categoria" class="">Provedor</label>
-                                                                <select name="id_provedor" id="id_pro" type="text" class="form-control">
-                                                                <option value="0">Seleccione un Provedor</option>
-                                                                <?php $resultado = mysqli_query($conectar, $provedor); 
-                                                                while ($row = mysqli_fetch_assoc($resultado)) { ?>
-                                                                <option value="<?php echo $row["id_provedor"];?>"><?php echo $row["nombre_pro"];?></option>
-                                                                <?php } mysqli_free_result($resultado); ?>
-                                                                </select>
+                                                            <label for="proveedor" class="">Proveedor</label>
+                                                                    <select name="id_provedor" id="provedor" type="text" class="form-control">
+                                                                    <option value="0"><?php echo $row["nombre_pro"]; ?></option>
+                                                                    <?php
+                                                                    $prov="SELECT * FROM provedor";
+                                                                    $respro=mysqli_query($conectar, $prov);
+                                                                    while($filap=mysqli_fetch_assoc($respro)){?>
+                                                                    <option value="<?php echo $filap["id_provedor"]; ?>"><?php echo $filap["nombre_pro"]; ?></option>
+                                                                    <?php } mysqli_free_result($respro);?>
+                                                                    </select>
                                                             </div>
                                                             <div class="position-relative form-group">
                                                                 <label for="provedores" class="">Imagen 1</label>
-                                                                <input name="img1" id="img1" type="file" class="form-control" value="<?php echo $row["img_prod"] ?>"required>
+                                                                <input name="img1" id="img1" type="file" class="form-control" required>
                                                             </div>
                                                             <div class="position-relative form-group">
                                                                 <label for="provedores" class="">Imagen 2</label>
-                                                                <input name="img2" id="img2" type="file" class="form-control" value="<?php echo $row["img_prod_2"] ?>"required>
+                                                                <input name="img2" id="img2" type="file" class="form-control" required>
                                                             </div>
                                                             <div class="position-relative form-group">
                                                                 <label for="provedores" class="">Imagen 3</label>
-                                                                <input name="img3" id="img3" type="file" class="form-control" value="<?php echo $row["img_prod_3"] ?>"required>
+                                                                <input name="img3" id="img3" type="file" class="form-control" required>
                                                             </div>
                                                             <button type="button" id="btncatalogo" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-success">
                                                                 Guardar Cambios
@@ -244,7 +246,7 @@ $provedor = "SELECT id_provedor, nombre_pro FROM provedor";
                                                     </form>
                                                 </tr>
                                             <?php }
-                                                    mysqli_free_result($res); ?>
+                                                    mysqli_free_result($resP); ?>
                                             </tbody>
                                         </table>
                                     </div>

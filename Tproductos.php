@@ -224,7 +224,7 @@
 
 
                                                     <td>
-                                                    <a href="TeditarPro.php?id=<?php echo $row["id_prod"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-info">Editar
+                                                    <a href="TeditarPro.php?id_P=<?php echo $row["id_prod"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-info">Editar
                                                                 </a>
                                                     <a href="funciones/elimiar_pro.php?id=<?php echo $row["id_prod"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-danger" onclick="return confirmar()">Eliminar
                                                                 </a>
