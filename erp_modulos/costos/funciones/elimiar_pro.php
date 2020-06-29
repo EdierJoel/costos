@@ -7,5 +7,5 @@
     $eliminar="DELETE FROM productos WHERE id_prod = '$id'";
     $resultado=mysqli_query($conectar, $eliminar);
     
-    header('location: ../Vi_producto.php');
+    header('location: ../Tproductos.php');
     ?>

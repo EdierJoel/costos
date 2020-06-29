@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="es">
 
@@ -119,7 +120,7 @@
                             <li>
                                 <a href="Treglamento.php">
                                     <i class="metismenu-icon pe-7s-notebook"></i>
-                                    Regramento
+                                    Reglamento
                                     <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                 </a>
                             </li>
@@ -135,12 +136,7 @@
                                     Productos
                                 </a>
                             </li>
-                            <li>
-                                <a href="Vi_producto.php">
-                                    <i class="metismenu-icon pe-7s-albums"></i>
-                                    catalogo
-                                </a>
-                            </li>
+                           
                         </ul>
                     </div>
                 </div>

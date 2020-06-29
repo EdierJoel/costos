@@ -11,8 +11,8 @@ if (isset($id_usr)) {
     if (!in_array($idModuloCostos[0], $_SESSION["consultar"])) {
         header("Location:" . URL . "/403.html");
     } else {
-// include("./funciones/db.php");
-// $cat = "SELECT * FROM categoria";
+ include("funciones/db.php");
+ $cat = "SELECT * FROM categoria";
 ?>
 
 <!doctype html>
@@ -88,26 +88,22 @@ if (isset($id_usr)) {
                                             </thead>
                                             <tbody>
                                                     <?php
-                                                    $cats_prod = $db->select('categorias_prod', '*');
-                                                    foreach($cats_prod as $catp){
+                                                    $resultado = mysqli_query($conectar, $cat);
+                                                    while ($row = mysqli_fetch_assoc($resultado)) {
                                                         ?>
                                                     <tr>
-                                                        <td><?php echo utf8_encode($catp["nombre_cat"]); ?></td>
+                                                        <td><?php echo utf8_encode($row["nombre"]); ?></td>
                                                         <td>
-                                                            <a href="tabla-editar.php?id=<?php echo $catp["id_cat_provedor"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-info">Editar
+                                                            <a href="tabla-editar.php?id=<?php echo $row["id_cat_provedor"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-info">Editar
                                                                 </a>
-                                                            <a href="funciones/eliminar.php?id=<?php echo $catp["id_cat_provedor"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-danger" onclick="return confirmar()">Eliminar
+                                                            <a href="funciones/eliminar.php?id=<?php echo $row["id_cat_provedor"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-danger" onclick="return confirmar()">Eliminar
                                                                 </a>
                                                         </td>
                                                     </tr>
-                                                        <?php
-                                                    }
-                                                    // $resultado = mysqli_query($conectar, $cat);
-                                                    // while ($row = mysqli_fetch_assoc($resultado)) {
-                                                    ?>
+                                                       
                                             <?php
-                                            // }
-                                            //     mysqli_free_result($resultado);
+                                             }
+                                             mysqli_free_result($resultado);
                                             ?>
                                             </tbody>
                                         </table>

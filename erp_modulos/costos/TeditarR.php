@@ -186,10 +186,10 @@ $rep = "SELECT * FROM reglamento WHERE id = '$id'";
                                                                 <label for="reglamento" class="">Descripcion</label>
                                                                 <textarea name="descripcion" id="descripcion" type="text" class="form-control" required><?php echo $row["descripcion"] ?></textarea>
                                                             </div>
-                                                            <div class="position-relative form-group">
+                                                           <!-- <div type="hidden" class="position-relative form-group">
                                                                 <label for="categoria" class="">Fecha de Creacion</label>
                                                                 <input name="fecha" id="fecha" type="text" class="form-control" value="<?php echo $row["fecha"] ?>" required>
-                                                            </div>
+                                                            </div>-->
                                                             <button type="submit" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-success">
                                                                 Guardar Cambios
                                                             </button>

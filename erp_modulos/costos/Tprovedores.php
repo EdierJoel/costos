@@ -6,7 +6,7 @@ error_reporting(0);
 $id_usr = $_SESSION['id'];
 if (isset($id_usr)) {
     //Traer id del modulo actual
-    $idModuloCostos = $db->select("modulos", "id_modulo", ["nombre_modulo" => "costos"]);
+    $idModuloCostos = $db->select("modulos", "id_modulo", ["nombre_modulo" => "proveedores"]);
     //Si no puede consultar este modulo mostrar pagina de error
     if (!in_array($idModuloCostos[0], $_SESSION["consultar"])) {
         header("Location:" . URL . "/403.html");
@@ -101,16 +101,17 @@ if (isset($id_usr)) {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            <?php
-                                                    $cats_prov= $db->select('provedor', '*');
-                                                    foreach($cats_prov as $prove){
-                                                        ?>
+                                           
                                            
                                                 <tr>
                                                     <?php 
-                                                    //$resultado = mysqli_query($conectar, $prov);
-                                                  // while ($row = mysqli_fetch_assoc($resultado)) { ?>
 
+
+   
+                                                  $resultado = mysqli_query($conectar, $prov);
+                                                 while ($row = mysqli_fetch_assoc($resultado)) { ?>
+
+                                                   
                                                     
                                                     <td><?php echo $row["nombre_pro"] ?></td>
                                                     <td><?php echo $row["domicilio"] ?></td>
@@ -123,15 +124,14 @@ if (isset($id_usr)) {
                                                     <td><?php echo $row["nombre"] ?></td>
 
 
-                                                    <td><?php echo utf8_encode($prove["nombre_prove"]); ?></td>
-                                                    <td>
-                                                    <a href="TeditarP.php?id=<?php echo $prove["id_provedor"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-info">Editar
+                                                  <td>
+                                                    <a href="TeditarP.php?id=<?php echo $row["id_provedor"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-info">Editar
                                                                 </a>
-                                                    <a href="funciones/eliminarP.php?id=<?php echo $prove["id_provedor"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-danger" onclick="return confirmar()">Eliminar
+                                                    <a href="funciones/eliminarP.php?id=<?php echo $row["id_provedor"]; ?>" type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-danger" onclick="return confirmar()">Eliminar
                                                                 </a>
                                                     </td>
                                                 </tr>
-                                                <?php //} mysqli_free_result($resultado); ?>
+                                                <?php  } mysqli_free_result($resultado); ?>
                                             </tbody>
                                         </table>
                                     </div>
