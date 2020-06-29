@@ -3,6 +3,7 @@ include("funciones/db.php");
 $id = $_GET["id"];
 $prov = "SELECT p1.id_provedor, p1.nombre_pro, p1.domicilio, p1.cp, p1.localidad, p1.id_estado, p3.estadonombre, p1.id_pais, p4.paisnombre, p1.telefono, p1.email, p2.nombre 
     FROM provedor p1 INNER JOIN categoria p2 on p1.id_categoria = p2.id_cat_provedor INNER JOIN estado p3 on p1.id_estado = p3.id_estado INNER JOIN paises p4 on p1.id_pais = p4.id_pais WHERE p1.id_provedor ='$id'";
+
 ?>
 
 <!doctype html>
@@ -18,10 +19,7 @@ $prov = "SELECT p1.id_provedor, p1.nombre_pro, p1.domicilio, p1.cp, p1.localidad
     <meta name="description" content="Tables are the backbone of almost all web applications.">
     <meta name="msapplication-tap-highlight" content="no">
     <link href="./main.css" rel="stylesheet">
-    <script
-    src="https://code.jquery.com/jquery-3.5.1.js"
-    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -174,7 +172,7 @@ $prov = "SELECT p1.id_provedor, p1.nombre_pro, p1.domicilio, p1.cp, p1.localidad
                                                     while ($row = mysqli_fetch_assoc($resultado)) { ?>
 
                                                         <form action="funciones/editarP.php" method="POST" onsubmit="return validar();">
-                                                        <div class="position-relative form-group">
+                                                            <div class="position-relative form-group">
                                                                 <input name="id" type="hidden" class="form-control" value="<?php echo $row["id_provedor"] ?>">
                                                             </div>
                                                             <div class="position-relative form-group">
@@ -202,9 +200,9 @@ $prov = "SELECT p1.id_provedor, p1.nombre_pro, p1.domicilio, p1.cp, p1.localidad
                                                                 <?php } mysqli_free_result($resu); ?>
                                                                 </select>
                                                             </div>
-
-                                        
+                                                            
                                                             <div class="position-relative form-group" id="listae">
+                                                         
                                                             </div>
                                                             
                                                             <div class="position-relative form-group">
@@ -225,18 +223,19 @@ $prov = "SELECT p1.id_provedor, p1.nombre_pro, p1.domicilio, p1.cp, p1.localidad
                                                                 <select name="id_categoria" id="cat" type="text" class="form-control">
                                                                 <?php
                                                                     $consulta ="SELECT * FROM categoria";
-                                                                    $Resulcat = mysqli_query($conectar, $consulta); 
-                                                                    while ($cat = mysqli_fetch_assoc($Resulcat)) { ?>
+                                                                    $resulcat = mysqli_query($conectar, $consulta); 
+                                                                    while ($cat = mysqli_fetch_assoc($resulcat)) { ?>
                                                                         <option value="<?php echo $cat["id_cat_provedor"];?>"><?php echo $cat["nombre"]?></option>
-                                                                    <?php } mysqli_free_result($Resulcat); ?>
+                                                                <?php } mysqli_free_result($resulcat); ?>
                                                                  </select>
                                                             </div>
                                                             <button type="submit" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-success">
                                                                 Guardar Cambios
                                                             </button>
-                                                    </form>
+                                                        
+                                                        </form>
                                                 </tr>
-                                            <?php }mysqli_free_result($resultado); ?>
+                                                    <?php }mysqli_free_result($resultado); ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -250,7 +249,7 @@ $prov = "SELECT p1.id_provedor, p1.nombre_pro, p1.domicilio, p1.cp, p1.localidad
     </div>
     <script src="funciones/validar.js"></script>
     <script type="text/javascript" src="./assets/scripts/main.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    
 </body>
 
 </html>
