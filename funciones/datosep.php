@@ -1,20 +1,23 @@
 <?php 
 include 'db.php';
-$estado=$_POST['estado'];
+$pais = $_POST['pais'];
 
-
-	$tabla="SELECT * from estado where id_p='$estado' ";
+	$tabla="SELECT  id_estado,
+					estadonombre,
+	 				id_p  
+	 from estado 
+	 where id_p = '$pais'";
 
 	$resul=mysqli_query($conectar,$tabla);
 
-	$cade="<label for='provedores'>Estado</label> 
-			<select name='estado' id='estado' type='text' class='form-control'>";
-
-	while ($vera=mysqli_fetch_row($resul)) {
-		$cade=$cade.'<option value='.$vera[0].'>'.utf8_encode($vera[1]).'</option>';
+	$cadenae="<label for='provedores'>Estado</label>
+			<select name='estadoe' id='estadoe' type='text' class='form-control'>";
+			
+	while ($ver=mysqli_fetch_array($resul)) {
+		$cadenae=$cadenae.'<option value='.$ver[0].'>'.$ver[1].'</option>';
 	}
 
-	echo  $cade."</select>";
+	echo  $cadenae."</select>";
 	
 
 ?>
