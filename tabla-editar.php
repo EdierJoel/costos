@@ -169,7 +169,7 @@ $cat = "SELECT * FROM categoria WHERE id_cat_provedor = '$id'";
                                                     while ($row = mysqli_fetch_assoc($resultado)) { ?>
 
                                                         <form action="funciones/editar.php" method="POST"  onsubmit="return validarCat();">
-                                                        <div class="position-relative form-group">
+                                                            <div class="position-relative form-group">
                                                                 <input name="id" id="id" type="hidden" class="form-control" value="<?php echo $row["id_cat_provedor"] ?>">
                                                             </div>
                                                             <div class="position-relative form-group">

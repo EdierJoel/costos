@@ -10,12 +10,12 @@ $pais = $_POST['pais'];
 
 	$resul=mysqli_query($conectar,$tabla);
 
-	$cadenae="<label for='provedores'>Estado</label>
-			<select name='estadoe' id='estadoe' type='text' class='form-control'>";
+	$cadenae="<label for='estado'>Estado</label> 
+			<select name='Testado' id='Testado' type='text' class='form-control'>";
 			
-	while ($ver=mysqli_fetch_array($resul)) {
-		$cadenae=$cadenae.'<option value='.$ver[0].'>'.$ver[1].'</option>';
-	}
+	while ($ver=mysqli_fetch_row($resul)) {
+		$cadenae=$cadenae.'<option value='.$ver[2].'>'.utf8_encode($ver[1]).'</option>';
+	}mysqli_free_result($resul);
 
 	echo  $cadenae."</select>";
 	
