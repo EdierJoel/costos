@@ -6,6 +6,7 @@ error_reporting(0);
 $id_usr = $_SESSION["id"];
 if (isset($id_usr)) {
 ?>
+
     <!DOCTYPE html>
     <html lang="mx">
 
