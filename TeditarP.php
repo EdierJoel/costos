@@ -200,10 +200,21 @@ $prov = "SELECT p1.id_provedor, p1.nombre_pro, p1.domicilio, p1.cp, p1.localidad
                                                                 <?php } mysqli_free_result($resu); ?>
                                                                 </select>
                                                             </div>
-                                                            
-                                                            <div class="position-relative form-group" id="listae">
-                                                         
+
+                                                            <div class="position-relative form-group">
+                                                            <label for="pais" class="">Estado</label>
+                                                                <select name="estado" id="estado" type="text" class="form-control">
+                                                                <option value="<?php echo $row["id_estado"];?>"><?php echo $row["estadonombre"];?></option>
+                                                                <?php
+                                                                $cestado ="SELECT * FROM estado";
+                                                                $restado = mysqli_query($conectar, $cestado); 
+                                                                while ($files = mysqli_fetch_assoc($restado)) { ?>
+                                                                <option value="<?php echo $files["id_estado"];?>"><?php echo $files["estadonombre"];?></option>
+                                                                <?php } mysqli_free_result($restado); ?>
+                                                                </select>
                                                             </div>
+                                                            
+                                                            
                                                             
                                                             <div class="position-relative form-group">
                                                                 <label for="provedores" class="">Ciudad</label>
@@ -267,10 +278,11 @@ $prov = "SELECT p1.id_provedor, p1.nombre_pro, p1.domicilio, p1.cp, p1.localidad
 	function recargarListae(){
 		$.ajax({
 			type:"POST",
-			url:"funciones/datosep.php",
-			data:"pais=" + $('#pais').val(),
-			success:function(e){
-				$('#listae').html(e);
+			url:"funciones/datos.php",
+            cache: false,
+			data:"estado =" + $('#pais').val(),
+			success:function(r){
+				console.log ($('#estados').html(r));
 			}
 		});
 	}
