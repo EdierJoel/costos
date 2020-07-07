@@ -253,7 +253,7 @@ $paises ="SELECT P.id_pais, p.paisnombre, e.id_estado, e.estadonombre FROM paise
 			url:"funciones/datos.php",
 			data:"estado=" + $('#pais').val(),
 			success:function(r){
-				$('#lista2').html(r);
+				console.log($('#lista2').html(r));
 			}
 		});
 	}

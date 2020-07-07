@@ -11,10 +11,10 @@ $pais = $_POST['pais'];
 	$resul=mysqli_query($conectar,$tabla);
 
 	$cadenae="<label for='estado'>Estado</label> 
-			<select name='Testado' id='Testado' type='text' class='form-control'>";
+			<select name='estado' id='estado' type='text' class='form-control'>";
 			
-	while ($ver=mysqli_fetch_row($resul)) {
-		$cadenae=$cadenae.'<option value='.$ver[2].'>'.utf8_encode($ver[1]).'</option>';
+	while ($ver=mysqli_fetch_assoc($resul)) {
+		$cadenae=$cadenae.'<option value='. $ver["id_estado"].'>'.utf8_encode($ver["estadonombre"]).'</option>';
 	}mysqli_free_result($resul);
 
 	echo  $cadenae."</select>";

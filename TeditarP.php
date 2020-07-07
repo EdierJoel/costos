@@ -201,7 +201,6 @@ $prov = "SELECT p1.id_provedor, p1.nombre_pro, p1.domicilio, p1.cp, p1.localidad
                                                                 </select>
                                                             </div>
                                                             
-                                                            
                                                             <div class="position-relative form-group" id="listae">
                                                          
                                                             </div>
